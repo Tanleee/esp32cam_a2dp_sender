@@ -1,0 +1,7 @@
+-Wno-frame-address
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero
+"-specs=D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/specs/picolibc.specs"
+-fno-rtti
