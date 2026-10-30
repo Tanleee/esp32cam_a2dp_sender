@@ -1,0 +1,210 @@
+Command: C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe C:\esp\v6.0.2\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\app-template.elf D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe' 'C:\esp\v6.0.2\esp-idf\tools\idf.py' '-p' 'COM3'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15820
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Oct 27 2026 21:22:27[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=559b0h (350640) map[0m
+[0;32mI (211) esp_image: segment 1: paddr=000659d8 vaddr=3ffbdb60 size=0601ch ( 24604) load[0m
+[0;32mI (221) esp_image: segment 2: paddr=0006b9fc vaddr=40080000 size=0461ch ( 17948) load[0m
+[0;32mI (229) esp_image: segment 3: paddr=00070020 vaddr=400d0020 size=134f28h (1265448) map[0m
+[0;32mI (680) esp_image: segment 4: paddr=001a4f50 vaddr=4008461c size=18e80h (102016) load[0m
+[0;32mI (722) esp_image: segment 5: paddr=001bddd8 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (737) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (737) boot: Disabling RNG early entropy source...[0m
+[0;32mI (747) cpu_start: Multicore app[0m
+[0;32mI (756) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (756) cpu_start: Pro cpu start user code[0m
+[0;32mI (756) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (758) app_init: Application information:[0m
+[0;32mI (762) app_init: Project name:     app-template[0m
+[0;32mI (766) app_init: App version:      e7be343-dirty[0m
+[0;32mI (770) app_init: Compile time:     Oct 27 2026 21:21:44[0m
+[0;32mI (775) app_init: ELF file SHA256:  17ea6fba5...[0m
+[0;32mI (780) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (784) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (787) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (791) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (796) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (802) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (807) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (812) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (817) heap_init: At 3FFD27E8 len 0000D818 (54 KiB): DRAM[0m
+[0;32mI (822) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (828) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (833) heap_init: At 4009D49C len 00002B64 (10 KiB): IRAM[0m
+[0;32mI (840) spi_flash: detected chip: generic[0m
+[0;32mI (842) spi_flash: flash io: dio[0m
+[0;32mI (847) coexist: coex firmware version: 6f3d08c[0m
+[0;32mI (850) main_task: Started on CPU0[0m
+[0;32mI (850) main_task: Calling app_main()[0m
+[0;32mI (880) BT_API: mode is ESP_BT_MODE_CLASSIC_BT[0m
+[0;32mI (880) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (880) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (880) BTDM_INIT: Bluetooth MAC: d8:bf:c0:9b:8b:ee[0m
+[0;32mI (890) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (980) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1450) BT_API: BT enabled[0m
+[0;32mI (1450) BT_AV: Bluedroid status: 0[0m
+[0;32mI (1470) BT_AV: Bluedroid status: 1[0m
+[0;32mI (1580) BT_AV: app_task_handler[0m
+[0;33mW (1580) BT_BTC: btc_avrc_tg_set_rn_supported_evt failed: AVRC TG not yet initialized[0m
+
+[0;33mW (1590) BT_BTC: A2DP Enable with AVRC[0m
+[0;33mW (1590) BT_AVRC: For AVRCP Target Cateory 1 and 3, SDP record shall contain additional protocol list[0m
+[0;32mI (1610) BT_AV: event: 10[0m
+[0;32mI (1610) BT_AV: event: 10[0m
+[0;32mI (1610) BT_AV: event: 10[0m
+[0;32mI (1610) BT_AV: event: 10[0m
+[0;32mI (1580) BT_A2DP_SRC: Da khoi dong A2DP source, dang tim 'LE208'...[0m
+[0;32mI (1630) wifi:wifi driver task: 3ffe3b48, prio:23, stack:6656, core=0[0m
+[0;32mI (1640) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (1640) wifi:wifi certification version: v7.0[0m
+[0;32mI (1640) wifi:config NVS flash: enabled[0m
+[0;32mI (1640) wifi:config nano formatting: disabled[0m
+[0;32mI (1650) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1650) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1660) wifi:Init management short buffer num: 32[0m
+[0;32mI (1660) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1670) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1670) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1670) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1680) wifi_init: rx ba win: 6[0m
+[0;32mI (1680) wifi_init: accept mbox: 6[0m
+[0;32mI (1680) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1690) wifi_init: udp mbox: 6[0m
+[0;32mI (1690) wifi_init: tcp mbox: 6[0m
+[0;32mI (1690) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1700) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1700) wifi_init: tcp mss: 1440[0m
+[0;32mI (1700) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1710) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (1710) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (1720) wifi:mode : sta (d8:bf:c0:9b:8b:ec)[0m
+[0;32mI (1720) wifi:enable tsf[0m
+[0;32mI (1740) wifi:new:<5,0>, old:<1,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1740) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1750) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1770) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1810) wifi:connected with C427, aid = 18, channel 5, BW20, bssid = 84:3c:99:d8:4f:2d[0m
+[0;32mI (1810) wifi:security: WPA2-PSK, phy: bgn, rssi: -47, cipher(pairwise:0x3, group:0x1), pmf:0[0m
+[0;32mI (1820) wifi:pm start, type: 1[0m
+
+[0;32mI (1820) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1830) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1830) wifi:<ba-add>idx:0 (ifx:0, 84:3c:99:d8:4f:2d), tid:0, ssn:2, winSize:64[0m
+[0;32mI (5130) esp_netif_handlers: sta ip: 192.168.1.26, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5130) WIFI_MGR: Da ket noi WiFi[0m
+[1;31mE (5130) APP_CTRL: Khong cap phat duoc buffer ghi am (96000 byte)[0m
+[0;32mI (5130) main_task: Returned from app_main()[0m
+[0;32mI (11580) BT_AV: set_scan_mode_connectable false[0m
+[0;32mI (11580) BT_AV: Starting device discovery...[0m
+[0;32mI (11580) RCCT: AVRC profile state changed: 0[0m
+[0;32mI (11580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0x4[0m
+[0;32mI (11590) BT_AV: Discovery started.[0m
+[0;32mI (12960) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (17660) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (18520) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (21580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (24400) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (24410) BT_AV: Discovery started.[0m
+[0;32mI (28820) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (29630) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (31580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (37210) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (37220) BT_AV: Discovery started.[0m
+[0;32mI (41580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (50030) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (50030) BT_AV: Discovery started.[0m
+[0;32mI (51580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (61580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (62840) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (62850) BT_AV: Discovery started.[0m
+[0;32mI (63810) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (65120) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (65820) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (66630) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (67130) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (67420) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (71580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (75650) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (75660) BT_AV: Discovery started.[0m
+[0;32mI (81580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (86850) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (87670) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (88470) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (88470) BT_AV: Discovery started.[0m
+[0;32mI (89980) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (90660) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (90660) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (91450) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (91580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (91930) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (92610) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (93120) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (93480) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (93920) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (94700) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (96590) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (100230) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (101110) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (101280) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (101290) BT_AV: Discovery started.[0m
+[0;32mI (101470) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (101580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (102280) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (102590) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (103160) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (103590) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (104030) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (104570) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (105020) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (105350) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (105680) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (106090) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (106490) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (110810) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (111580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (114090) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (114100) BT_AV: Discovery started.[0m
+[0;32mI (121580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (126910) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (126910) BT_AV: Discovery started.[0m
+[0;32mI (131580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (132650) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (132650) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (133220) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (133220) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (133520) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (133960) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (134480) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (134860) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (135200) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (136700) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (137290) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (137740) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (138170) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (138570) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (139020) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (139720) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (139730) BT_AV: Discovery started.[0m
+[0;32mI (141580) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m

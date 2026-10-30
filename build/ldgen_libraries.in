@@ -203,5 +203,7 @@ $<TARGET_FILE:__idf_driver>
 $<TARGET_FILE:__idf_esp_driver_ledc>
 $<TARGET_FILE:__idf_esp_driver_dac>
 $<TARGET_FILE:idf::ESP32-A2DP>
+$<TARGET_FILE:idf::espressif__cjson>
 $<TARGET_FILE:idf::main>
 $<TARGET_FILE:__idf_ESP32-A2DP>
+$<TARGET_FILE:__idf_espressif__cjson>
