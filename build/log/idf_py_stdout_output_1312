@@ -1,0 +1,519 @@
+Command: C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe C:\esp\v6.0.2\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\app-template.elf D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe' 'C:\esp\v6.0.2\esp-idf\tools\idf.py' '-p' 'COM3'
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:ets Jul 29 2019 12:21:46
+
+rst:PI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15820
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Nov  1 2026 16:48:04[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=4bfc8h (311240) map[0m
+[0;32mI (197) esp_image: segment 1: paddr=0005bff0 vaddr=3ffbdb60 size=04028h ( 16424) load[0m
+[0;32mI (204) esp_image: segment 2: paddr=00060020 vaddr=400d0020 size=1113fch (1119228) map[0m
+[0;32mI (603) esp_image: segment 3: paddr=00171424 vaddr=3ffc1b88 size=02050h (  8272) load[0m
+[0;32mI (606) esp_image: segment 4: paddr=0017347c vaddr=40080000 size=1d68ch (120460) load[0m
+[0;32mI (656) esp_image: segment 5: paddr=00190b10 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (671) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (671) boot: Disabling RNG early entropy source...[0m
+[0;32mI (682) cpu_start: Multicore app[0m
+[0;32mI (690) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (690) cpu_start: Pro cpu start user code[0m
+[0;32mI (690) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (692) app_init: Application information:[0m
+[0;32mI (696) app_init: Project name:     app-template[0m
+[0;32mI (700) app_init: App version:      359dc75-dirty[0m
+[0;32mI (705) app_init: Compile time:     Nov  1 2026 16:43:43[0m
+[0;32mI (710) app_init: ELF file SHA256:  f4b921b75...[0m
+[0;32mI (714) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (718) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (722) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (726) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (730) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (736) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (741) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (746) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (751) heap_init: At 3FFD0E58 len 0000F1A8 (60 KiB): DRAM[0m
+[0;32mI (756) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (762) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (767) heap_init: At 4009D68C len 00002974 (10 KiB): IRAM[0m
+[0;32mI (774) spi_flash: detected chip: generic[0m
+[0;32mI (776) spi_flash: flash io: dio[0m
+[0;32mI (781) coexist: coex firmware version: 6f3d08c[0m
+[0;32mI (785) main_task: Started on CPU0[0m
+[0;32mI (785) main_task: Calling app_main()[0m
+[0;32mI (825) BT_A2DP_SRC: Da cau hinh A2DP source (chua quet/ket noi, cho lenh tu ESP32-C3)[0m
+[0;32mI (835) wifi:wifi driver task: 3ffdf92c, prio:23, stack:6656, core=0[0m
+[0;32mI (845) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (845) wifi:wifi certification version: v7.0[0m
+[0;32mI (845) wifi:config NVS flash: enabled[0m
+[0;32mI (845) wifi:config nano formatting: disabled[0m
+[0;32mI (855) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (855) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (855) wifi:Init management short buffer num: 32[0m
+[0;32mI (865) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (865) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (875) wifi:Init static rx buffer num: 10[0m
+[0;32mI (875) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (885) wifi_init: rx ba win: 6[0m
+[0;32mI (885) wifi_init: accept mbox: 6[0m
+[0;32mI (885) wifi_init: tcpip mbox: 32[0m
+[0;32mI (885) wifi_init: udp mbox: 6[0m
+[0;32mI (895) wifi_init: tcp mbox: 6[0m
+[0;32mI (895) wifi_init: tcp tx win: 5760[0m
+[0;32mI (895) wifi_init: tcp rx win: 5760[0m
+[0;32mI (905) wifi_init: tcp mss: 1440[0m
+[0;32mI (905) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (905) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (915) BACKLIGHT: Da khoi tao PWM do sang man hinh tren GPIO14[0m
+[0;32mI (915) MAIN: Heap sau khoi tao: free=18656 largest=18432 min_ever=18656[0m
+[0;32mI (925) main_task: Returned from app_main()[0m
+[0;32mI (925) BACKLIGHT: Do sang man hinh -> 100%[0m
+[0;32mI (6005) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (6085) wifi:mode : sta (d8:bf:c0:9b:8b:ec)[0m
+[0;32mI (6085) wifi:enable tsf[0m
+[0;32mI (6085) WIFI_MGR: Da bat radio WiFi[0m
+[0;32mI (79025) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav[0m
+[0;33mW (81215) MIC_CAP: Nhan REC_STOP truoc khi phat hien giong noi, huy ghi am[0m
+[0;32mI (83505) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav[0m
+[0;32mI (87395) MIC_CAP: Ghi am xong: 64000 byte (~4.0s)[0m
+���������������������������������������������������������������� (155365) SYS_CTRL: Bat dau ket noi WiFi: C427
+[0;33mW (155365) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (155385) wifi:new:<9,0>, old:<1,0>, ap:<255,255>, sta:<9,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (155385) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (155395) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (155405) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (155445) wifi:connected with C427, aid = 16, channel 9, BW20, bssid = 84:3c:99:d8:4f:2d[0m
+[0;32mI (155445) wifi:security: WPA2-PSK, phy: bgn, rssi: -44, cipher(pairwise:0x3, group:0x1), pmf:0[0m
+[0;32mI (155455) wifi:pm start, type: 1[0m
+
+[0;32mI (155455) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (155465) wifi:<ba-add>idx:0 (ifx:0, 84:3c:99:d8:4f:2d), tid:0, ssn:2, winSize:64[0m
+[0;32mI (155505) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (159935) esp_netif_handlers: sta ip: 192.168.1.12, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (159935) WIFI_MGR: Da luu ssid/password vao NVS: C427[0m
+[0;32mI (160725) SYS_CTRL: Da dong bo thoi gian tu may chu NTP[0m
+[0;32mI (160735) wifi:<ba-add>idx:1 (ifx:0, 84:3c:99:d8:4f:2d), tid:3, ssn:1, winSize:64[0m
+[0;32mI (163595) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav[0m
+[0;32mI (167495) MIC_CAP: Ghi am xong: 64000 byte (~4.0s)[0m
+[1;31mE (167495) AI_CLIENT: Khong du RAM cho WAV buffer (64044 byte)[0m
+
+***ERROR*** A stack overflow in task app_ctrl has been detected.
+
+
+Backtrace: 0x40091161:0x3ffd6a10 0x40091129:0x3ffd6a30 0x401dcf52:0x3ffd6a50 0x40092227:0x3ffd6ad0 0x400917b0:0x3ffd6af0 0x40091762:0x3f404898 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: f4b921b75
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15820
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Nov  1 2026 16:48:04[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (31) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=4bfc8h (311240) map[0m
+[0;32mI (197) esp_image: segment 1: paddr=0005bff0 vaddr=3ffbdb60 size=04028h ( 16424) load[0m
+[0;32mI (204) esp_image: segment 2: paddr=00060020 vaddr=400d0020 size=1113fch (1119228) map[0m
+[0;32mI (603) esp_image: segment 3: paddr=00171424 vaddr=3ffc1b88 size=02050h (  8272) load[0m
+[0;32mI (606) esp_image: segment 4: paddr=0017347c vaddr=40080000 size=1d68ch (120460) load[0m
+[0;32mI (656) esp_image: segment 5: paddr=00190b10 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (671) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (671) boot: Disabling RNG early entropy source...[0m
+[0;32mI (682) cpu_start: Multicore app[0m
+[0;32mI (690) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (690) cpu_start: Pro cpu start user code[0m
+[0;32mI (690) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (692) app_init: Application information:[0m
+[0;32mI (696) app_init: Project name:     app-template[0m
+[0;32mI (700) app_init: App version:      359dc75-dirty[0m
+[0;32mI (705) app_init: Compile time:     Nov  1 2026 16:43:43[0m
+[0;32mI (710) app_init: ELF file SHA256:  f4b921b75...[0m
+[0;32mI (714) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (718) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (722) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (726) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (730) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (736) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (741) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (746) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (751) heap_init: At 3FFD0E58 len 0000F1A8 (60 KiB): DRAM[0m
+[0;32mI (756) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (762) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (767) heap_init: At 4009D68C len 00002974 (10 KiB): IRAM[0m
+[0;32mI (774) spi_flash: detected chip: generic[0m
+[0;32mI (776) spi_flash: flash io: dio[0m
+[0;32mI (781) coexist: coex firmware version: 6f3d08c[0m
+[0;32mI (784) main_task: Started on CPU0[0m
+[0;32mI (784) main_task: Calling app_main()[0m
+[0;32mI (824) BT_A2DP_SRC: Da cau hinh A2DP source (chua quet/ket noi, cho lenh tu ESP32-C3)[0m
+[0;32mI (834) wifi:wifi driver task: 3ffdf92c, prio:23, stack:6656, core=0[0m
+[0;32mI (844) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (844) wifi:wifi certification version: v7.0[0m
+[0;32mI (844) wifi:config NVS flash: enabled[0m
+[0;32mI (844) wifi:config nano formatting: disabled[0m
+[0;32mI (854) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (854) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (854) wifi:Init management short buffer num: 32[0m
+[0;32mI (864) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (864) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (874) wifi:Init static rx buffer num: 10[0m
+[0;32mI (874) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (884) wifi_init: rx ba win: 6[0m
+[0;32mI (884) wifi_init: accept mbox: 6[0m
+[0;32mI (884) wifi_init: tcpip mbox: 32[0m
+[0;32mI (884) wifi_init: udp mbox: 6[0m
+[0;32mI (894) wifi_init: tcp mbox: 6[0m
+[0;32mI (894) wifi_init: tcp tx win: 5760[0m
+[0;32mI (894) wifi_init: tcp rx win: 5760[0m
+[0;32mI (904) wifi_init: tcp mss: 1440[0m
+[0;32mI (904) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (904) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (914) BACKLIGHT: Da khoi tao PWM do sang man hinh tren GPIO14[0m
+[0;32mI (914) MAIN: Heap sau khoi tao: free=18656 largest=18432 min_ever=18656[0m
+[0;32mI (924) main_task: Returned from app_main()[0m
+[0;32mI (924) BACKLIGHT: Do sang man hinh -> 100%[0m
+[0;32mI (6304) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav[0m
+[0;32mI (10204) MIC_CAP: Ghi am xong: 64000 byte (~4.0s)[0m
+[0;32mI (44144) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav[0m
+[0;32mI (48034) MIC_CAP: Ghi am xong: 64000 byte (~4.0s)[0m
+[0;32mI (54224) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav[0m
+[0;33mW (57574) MIC_CAP: Nhan REC_STOP truoc khi phat hien giong noi, huy ghi am[0m
+����������������������������������������������������������������93844) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav
+[0;32mI (97744) MIC_CAP: Ghi am xong: 64000 byte (~4.0s)[0m
+[0;32mI (137264) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav[0m
+[0;33mW (139594) MIC_CAP: Nhan REC_STOP truoc khi phat hien giong noi, huy ghi am[0m
+[0;32mI (255474) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav[0m
+[0;32mI (259384) MIC_CAP: Ghi am xong: 64000 byte (~4.0s)[0m
+����������������������������������������������������������������(565444) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav
+[0;33mW (566914) MIC_CAP: Nhan REC_STOP truoc khi phat hien giong noi, huy ghi am[0m
+[0;32mI (619654) APP_CTRL: Nhan REC_START, playlist: BIGBAN~1.WAV,�ONTUY~1.WAV,BTS�ME~1.WAV,BTS DOPE.wav,This is what autumn feels like.wav,A Thousand Years.wav,Charlie Puth - Cheating on You [Official Video].wav,Charlie Puth - Attention [Official Video].wav,okeokeoke  Low G.wav[0m
+[0;32mI (623554) MIC_CAP: Ghi am xong: 64000 byte (~4.0s)[0m

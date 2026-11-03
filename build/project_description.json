@@ -1,7 +1,7 @@
 {
     "version":            "1.3",
     "project_name":       "app-template",
-    "project_version":    "e7be343-dirty",
+    "project_version":    "359dc75-dirty",
     "project_path":       "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam",
     "idf_path":           "C:/esp/v6.0.2/esp-idf",
     "build_dir":          "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build",
@@ -1805,12 +1805,12 @@
             "dir": "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main",
             "type": "LIBRARY",
             "lib": "__idf_main",
-            "reqs": [ "esp_driver_i2s", "bt", "nvs_flash", "esp_ringbuf", "ESP32-A2DP", "esp_driver_uart", "esp_driver_gpio", "esp_wifi", "esp_netif", "esp_event", "esp_http_client", "esp-tls", "mbedtls", "esp_coex", "lwip" ],
+            "reqs": [ "esp_driver_i2s", "bt", "nvs_flash", "esp_ringbuf", "ESP32-A2DP", "esp_driver_uart", "esp_driver_gpio", "esp_wifi", "esp_netif", "esp_event", "esp_http_client", "esp-tls", "mbedtls", "esp_coex", "lwip", "esp_driver_ledc" ],
             "priv_reqs": [ "espressif__cjson" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__cjson" ],
             "file": "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/main/libmain.a",
-            "sources": [ "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/main.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/i2s_slave_rx.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/bt_a2dp_source.cpp", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/uart_link.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/mic_capture.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/wifi_mgr.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/ai_client.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/app_controller.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/volume_button.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/system_ctrl.c" ],
+            "sources": [ "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/main.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/i2s_slave_rx.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/bt_a2dp_source.cpp", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/uart_link.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/mic_capture.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/wifi_mgr.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/ai_client.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/app_controller.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/volume_button.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/system_ctrl.c", "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main/src/backlight_ctrl.c" ],
             "include_dirs": [ "inc" ]
         },
         "mbedtls": {
@@ -3944,7 +3944,7 @@
             "dir": "D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/main",
             "source": "project_components",
             "lib": "__idf_main",
-            "reqs": [ "esp_driver_i2s", "bt", "nvs_flash", "esp_ringbuf", "ESP32-A2DP", "esp_driver_uart", "esp_driver_gpio", "esp_wifi", "esp_netif", "esp_event", "esp_http_client", "esp-tls", "mbedtls", "esp_coex", "lwip" ],
+            "reqs": [ "esp_driver_i2s", "bt", "nvs_flash", "esp_ringbuf", "ESP32-A2DP", "esp_driver_uart", "esp_driver_gpio", "esp_wifi", "esp_netif", "esp_event", "esp_http_client", "esp-tls", "mbedtls", "esp_coex", "lwip", "esp_driver_ledc" ],
             "priv_reqs": [ "espressif__cjson" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__cjson" ],

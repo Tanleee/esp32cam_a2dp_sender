@@ -1,5 +1,6 @@
 #pragma once
 #include "esp_err.h"
+#include <stdbool.h>
 
 // Module dieu phoi cac tinh nang "he thong" moi, tach rieng khoi app_controller.c
 // (chi lo tinh nang AI) de de doc/bao tri:
@@ -21,3 +22,12 @@ void system_ctrl_handle_bt_connect(void);
 void system_ctrl_handle_bt_disconnect(void);
 void system_ctrl_handle_wifi_scan_req(void);
 void system_ctrl_handle_wifi_connect(const char *ssid, const char *password);
+
+// MOI: WIFI_ENABLE / WIFI_DISABLE - bat/tat radio WiFi (driver van giu khoi tao).
+void system_ctrl_handle_wifi_enable(bool enable);
+
+// MOI: WIFI_PW_QUERY:<ssid> - tra loi WIFI_PW / WIFI_PW_NONE tuy NVS co mat khau chua.
+void system_ctrl_handle_wifi_pw_query(const char *ssid);
+
+// MOI: WIFI_FORGET:<ssid> - xoa ssid + mat khau khoi NVS.
+void system_ctrl_handle_wifi_forget(const char *ssid);

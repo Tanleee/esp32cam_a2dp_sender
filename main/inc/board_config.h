@@ -4,14 +4,6 @@
 // File gom cac chan GPIO/thong so phan cung cua board ESP32 classic (board
 // relay Bluetooth + xu ly AI). Dung lai dung theo file ban da gui (da them
 // PIN_SPEAKER_MUTE moi cho tinh nang tat loa local khi Bluetooth ket noi).
-//
-// LUU Y: cac file mic_capture.c / i2s_slave_rx.c / volume_button.c hien tai
-// van TU KHAI BAO rieng cac macro PIN_MIC_*/PIN_I2S_*_IN/PIN_BTN_VOL_* (gia
-// tri giong het o day) thay vi include file nay - minh giu nguyen nhu vay de
-// khong dong vao code dang chay on dinh. File nay dung lam noi tham chieu
-// chung + duoc cac file MOI (system_ctrl.c, bt_a2dp_source.cpp) include truc
-// tiep. Neu ban muon gop hoan toan ve 1 noi duy nhat, noi minh se refactor
-// lai 3 file kia.
 
 // --- I2S0 slave RX: "nghe trom" bus I2S cua ESP32-C3 (toi MAX98357A cuc bo) ---
 #define PIN_I2S_BCLK_IN   25
@@ -38,8 +30,8 @@
 // Bluetooth (A2DP) thanh cong voi loa ngoai "LE208", keo chan nay XUONG THAP
 // de tat loa local, tranh phat chong 2 noi cung luc; khi Bluetooth ngat ket
 // noi thi keo len lai de loa local tiep tuc phat.
-// GIA DINH (hay kiem tra lai dung board MAX98357A ban dang dung): SD = HIGH
-// (hoac tha noi, thuong duoc keo len san bang dien tro ngoai tren board) ->
-// loa HOAT DONG; SD = LOW -> loa TAT. Neu board cua ban dung nguoc lai, chi
-// can dao gia tri trong bt_a2dp_source.cpp (ham apply_speaker_mute()).
 #define PIN_SPEAKER_MUTE   4
+
+// --- MOI: PWM dieu khien do sang man hinh (C3 phu trach man hinh, nhung
+// chan PWM vat ly dat tren board nay - dung chung dat voi C3 qua UART/GND) ---
+#define PIN_BACKLIGHT_PWM   14

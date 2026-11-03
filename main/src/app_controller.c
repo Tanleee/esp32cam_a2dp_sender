@@ -1,6 +1,5 @@
 #include "app_controller.h"
 #include "uart_link.h"
-#include "system_ctrl.h"
 #include "mic_capture.h"
 #include "ai_client.h"
 #include "wifi_mgr.h"
@@ -20,21 +19,18 @@ static const char *TAG = "APP_CTRL";
 
 static QueueHandle_t s_cmd_queue;
 
-// Cap phat 1 LAN DUY NHAT, trong app_controller_init() - CANG SOM CANG TOT (truoc
-// khi Bluetooth/WiFi khoi dong) de heap con nguyen ven/it bi phan manh nhat,
-// tranh loi "khong cap phat duoc buffer ghi am" tung gap khi malloc() nay bi
-// goi SAU khi BT + WiFi da chiem/phan manh DRAM noi bo.
+// Cap phat 1 LAN DUY NHAT, trong app_controller_init() - CANG SOM CANG TOT
+// (truoc khi Bluetooth/WiFi khoi dong) de heap con nguyen ven/it bi phan manh nhat.
 static uint8_t *s_rec_buf = NULL;
 
-static void on_rec_start(const char *playlist_csv)
+void app_controller_handle_rec_start(const char *playlist_csv)
 {
     char *copy = strdup(playlist_csv);
     if (copy) xQueueSend(s_cmd_queue, &copy, 0);
 }
 
-// ESP32-C3 gui REC_STOP khi nguoi dung bam dung ghi am thu cong giua chung
-// (thay vi chi cho VAD tu dong phat hien im lang de dung).
-static void on_rec_stop(void)
+// ESP32-C3 gui REC_STOP khi nguoi dung bam dung ghi am thu cong giua chung.
+void app_controller_handle_rec_stop(void)
 {
     mic_capture_request_stop();
 }
@@ -64,7 +60,6 @@ static void controller_task(void *arg)
             continue;
         }
 
-        // song co the chua nhieu ten bai hat cach nhau boi dau phay (toi da 4 bai)
         char song[256] = {0};
         esp_err_t ai_ret = ai_client_recommend_song(s_rec_buf, rec_len, REC_SAMPLE_RATE,
                                                       playlist, song, sizeof(song));
@@ -80,7 +75,6 @@ static void controller_task(void *arg)
 
 esp_err_t app_controller_init(void)
 {
-    // Cap phat buffer ghi am NGAY, truoc het - xem ghi chu o khai bao s_rec_buf.
     s_rec_buf = malloc(REC_MAX_BYTES);
     if (!s_rec_buf) {
         ESP_LOGE(TAG, "Khong cap phat duoc buffer ghi am (%d byte)", REC_MAX_BYTES);
@@ -90,22 +84,17 @@ esp_err_t app_controller_init(void)
     s_cmd_queue = xQueueCreate(2, sizeof(char *));
     if (!s_cmd_queue) return ESP_ERR_NO_MEM;
 
-    ESP_ERROR_CHECK(mic_capture_init());
+    // Khong con ESP_ERROR_CHECK o day nua (truoc day se abort() ca chuong
+    // trinh neu mic loi) - tra ve loi de app_main tiep tuc khoi tao cac module
+    // con lai va van bao duoc trang thai qua INIT_DONE.
+    esp_err_t ret = mic_capture_init();
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Khoi tao mic_capture that bai: %s", esp_err_to_name(ret));
+        return ret;
+    }
 
-    // uart_link_init() CHI duoc goi 1 LAN DUY NHAT trong toan bo chuong trinh -
-    // gom ca callback cua tinh nang AI (on_rec_start/on_rec_stop) lan cac
-    // callback he thong moi (BT_CONNECT/BT_DISCONNECT/WIFI_SCAN_REQ/
-    // WIFI_CONNECT), tro ve system_ctrl.c.
-    uart_link_callbacks_t cbs = {
-        .on_rec_start     = on_rec_start,
-        .on_rec_stop      = on_rec_stop,
-        .on_bt_connect    = system_ctrl_handle_bt_connect,
-        .on_bt_disconnect = system_ctrl_handle_bt_disconnect,
-        .on_wifi_scan_req = system_ctrl_handle_wifi_scan_req,
-        .on_wifi_connect  = system_ctrl_handle_wifi_connect,
-    };
-    ESP_ERROR_CHECK(uart_link_init(&cbs));
-
-    xTaskCreate(controller_task, "app_ctrl", 8192, NULL, 5, NULL);
-    return ESP_OK;
+    // uart_link_init() KHONG con duoc goi o day nua - da doi sang main.c de
+    // gom chung voi callback cua system_ctrl/backlight_ctrl (xem main.c).
+    BaseType_t ok = xTaskCreate(controller_task, "app_ctrl", 8192, NULL, 5, NULL);
+    return (ok == pdPASS) ? ESP_OK : ESP_FAIL;
 }
