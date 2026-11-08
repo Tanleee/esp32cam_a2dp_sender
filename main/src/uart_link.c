@@ -1,4 +1,5 @@
 #include "uart_link.h"
+#include "board_config.h"
 #include "driver/uart.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -9,10 +10,6 @@
 
 static const char *TAG = "UART_LINK";
 
-#define UART_PORT       UART_NUM_2
-#define UART_TX_PIN     17
-#define UART_RX_PIN     16
-#define UART_BAUD       115200
 #define LINE_BUF_SZ     2560
 
 static uart_link_callbacks_t s_cbs;
@@ -84,10 +81,22 @@ static void uart_rx_task(void *arg)
                 s_cbs.on_rec_start((char *)line + 10);
             } else if (strcmp((char *)line, "REC_STOP") == 0 && s_cbs.on_rec_stop) {
                 s_cbs.on_rec_stop();
-            } else if (strcmp((char *)line, "BT_CONNECT") == 0 && s_cbs.on_bt_connect) {
-                s_cbs.on_bt_connect();
+            } else if ((strcmp((char *)line, "BT_ENABLE") == 0 || strcmp((char *)line, "BT_CONNECT") == 0)
+                       && s_cbs.on_bt_enable) {
+                // "BT_CONNECT" tran (khong kem dia chi) la lenh cua ban C3 cu -> coi nhu BT_ENABLE.
+                s_cbs.on_bt_enable();
+            } else if (strcmp((char *)line, "BT_DISABLE") == 0 && s_cbs.on_bt_disable) {
+                s_cbs.on_bt_disable();
+            } else if (strcmp((char *)line, "BT_SCAN_REQ") == 0 && s_cbs.on_bt_scan_req) {
+                s_cbs.on_bt_scan_req();
+            } else if (strncmp((char *)line, "BT_CONNECT:", 11) == 0 && s_cbs.on_bt_connect) {
+                s_cbs.on_bt_connect((char *)line + 11);
             } else if (strcmp((char *)line, "BT_DISCONNECT") == 0 && s_cbs.on_bt_disconnect) {
                 s_cbs.on_bt_disconnect();
+            } else if (strncmp((char *)line, "BT_FORGET:", 10) == 0 && s_cbs.on_bt_forget) {
+                s_cbs.on_bt_forget((char *)line + 10);
+            } else if (strcmp((char *)line, "NET_CHECK") == 0 && s_cbs.on_net_check) {
+                s_cbs.on_net_check();
             } else if (strcmp((char *)line, "WIFI_SCAN_REQ") == 0 && s_cbs.on_wifi_scan_req) {
                 s_cbs.on_wifi_scan_req();
             } else if (strncmp((char *)line, "WIFI_CONNECT:", 13) == 0) {
@@ -154,6 +163,19 @@ void uart_link_send_error(const char *code)
 {
     char buf[128];
     int n = snprintf(buf, sizeof(buf), "REC_ERR:%s\n", code);
+    uart_write_bytes(UART_PORT, buf, n);
+}
+
+void uart_link_send_net_ok(void)
+{
+    const char *msg = "NET_OK\n";
+    uart_write_bytes(UART_PORT, msg, strlen(msg));
+}
+
+void uart_link_send_net_err(const char *code)
+{
+    char buf[48];
+    int n = snprintf(buf, sizeof(buf), "NET_ERR:%s\n", code);
     uart_write_bytes(UART_PORT, buf, n);
 }
 
@@ -253,4 +275,27 @@ void uart_link_send_wifi_power(bool on)
 {
     const char *msg = on ? "WIFI_POWER:1\n" : "WIFI_POWER:0\n";
     uart_write_bytes(UART_PORT, msg, strlen(msg));
+}
+void uart_link_send_bt_power(bool on)
+{
+    char buf[24];
+    int n = snprintf(buf, sizeof(buf), "BT_POWER:%d\n", on ? 1 : 0);
+    uart_write_bytes(UART_PORT, buf, n);
+}
+
+void uart_link_send_bt_list(const char *devices_csv)
+{
+    size_t msg_len = strlen("BT_LIST:") + strlen(devices_csv) + 2;
+    char *msg = malloc(msg_len);
+    if (!msg) { ESP_LOGE(TAG, "Khong du RAM de gui BT_LIST"); return; }
+    int n = snprintf(msg, msg_len, "BT_LIST:%s\n", devices_csv);
+    uart_write_bytes(UART_PORT, msg, n);
+    free(msg);
+}
+
+void uart_link_send_bt_err(const char *code)
+{
+    char buf[48];
+    int n = snprintf(buf, sizeof(buf), "BT_ERR:%s\n", code);
+    uart_write_bytes(UART_PORT, buf, n);
 }

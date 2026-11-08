@@ -1,0 +1,269 @@
+Command: C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe C:\esp\v6.0.2\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\app-template.elf D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe' 'C:\esp\v6.0.2\esp-idf\tools\idf.py' '-p' 'COM3'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x33 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15820
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Nov  1 2026 16:48:04[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v1.0[0m
+[0;32mI (31) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=4eac0h (322240) map[0m
+[0;32mI (201) esp_image: segment 1: paddr=0005eae8 vaddr=3ffbdb60 size=01530h (  5424) load[0m
+[0;32mI (203) esp_image: segment 2: paddr=00060020 vaddr=400d0020 size=11aa90h (1157776) map[0m
+[0;32mI (617) esp_image: segment 3: paddr=0017aab8 vaddr=3ffbf090 size=04f80h ( 20352) load[0m
+[0;32mI (625) esp_image: segment 4: paddr=0017fa40 vaddr=40080000 size=1be6ch (114284) load[0m
+[0;32mI (672) esp_image: segment 5: paddr=0019b8b4 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (687) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (687) boot: Disabling RNG early entropy source...[0m
+[0;32mI (697) quad_psram: This chip is ESP32-D0WD[0m
+[0;32mI (699) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (699) esp_psram: Speed: 40MHz[0m
+[0;32mI (699) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m
+[0;33mW (704) esp_psram: Virtual address not enough for PSRAM, map as much as we can. 4MB is mapped[0m
+[0;32mI (713) cpu_start: Multicore app[0m
+[0;32mI (1618) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1626) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (1626) cpu_start: Pro cpu start user code[0m
+[0;32mI (1626) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (1629) app_init: Application information:[0m
+[0;32mI (1632) app_init: Project name:     app-template[0m
+[0;32mI (1637) app_init: App version:      01cac2d-dirty[0m
+[0;32mI (1641) app_init: Compile time:     Nov  6 2026 16:48:49[0m
+[0;32mI (1646) app_init: ELF file SHA256:  29bac6e27...[0m
+[0;32mI (1651) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (1655) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1659) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (1663) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1667) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1673) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (1678) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (1683) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (1689) heap_init: At 3FFD11A0 len 0000EE60 (59 KiB): DRAM[0m
+[0;32mI (1694) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (1700) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (1705) heap_init: At 4009BE6C len 00004194 (16 KiB): IRAM[0m
+[0;32mI (1711) esp_psram: Adding pool of 4096K of PSRAM memory to heap allocator[0m
+[0;32mI (1718) spi_flash: detected chip: gd[0m
+[0;32mI (1720) spi_flash: flash io: dio[0m
+[0;33mW (1723) spi_flash: Detected size(8192k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+[0;32mI (1738) coexist: coex firmware version: 6f3d08c[0m
+[0;32mI (1741) main_task: Started on CPU0[0m
+[0;32mI (1741) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1751) main_task: Calling app_main()[0m
+[0;32mI (1791) APP_CTRL: Buffer ghi am 64000 byte nam trong PSRAM[0m
+[0;32mI (1801) BT_A2DP_SRC: Da cau hinh A2DP source (Bluetooth dang TAT, cho lenh tu ESP32-C3)[0m
+[0;32mI (1811) wifi:wifi driver task: 3ffd7e84, prio:23, stack:6656, core=0[0m
+[0;32mI (1831) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (1831) wifi:wifi certification version: v7.0[0m
+[0;32mI (1831) wifi:config NVS flash: enabled[0m
+[0;32mI (1831) wifi:config nano formatting: disabled[0m
+[0;32mI (1831) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1841) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1841) wifi:Init management short buffer num: 32[0m
+[0;32mI (1851) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1851) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1851) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1861) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1861) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1871) wifi_init: rx ba win: 6[0m
+[0;32mI (1871) wifi_init: accept mbox: 6[0m
+[0;32mI (1871) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1871) wifi_init: udp mbox: 6[0m
+[0;32mI (1881) wifi_init: tcp mbox: 6[0m
+[0;32mI (1881) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1881) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1891) wifi_init: tcp mss: 1440[0m
+[0;32mI (1891) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1901) BACKLIGHT: Da khoi tao PWM do sang man hinh tren GPIO14[0m
+[0;32mI (1901) MAIN: Heap sau khoi tao: internal free=58731 largest=57344 | psram free=4057288[0m
+[0;32mI (1911) main_task: Returned from app_main()[0m
+[0;32mI (1911) BACKLIGHT: Do sang man hinh -> 100%[0m
+[0;32mI (6131) SYS_CTRL: Heap truoc khi bat BT: free=63059 largest=57344 min_ever=58731 (WiFi TAT)[0m
+[0;32mI (6131) BT_A2DP_SRC: Bat Bluetooth + bat dau quet thiet bi xung quanh...[0m
+[0;32mI (6131) BT_API: mode is ESP_BT_MODE_CLASSIC_BT[0m
+[0;32mI (6131) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (6141) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (6141) BTDM_INIT: Bluetooth MAC: a4:cf:12:51:b3:d6[0m
+[0;32mI (6151) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (6251) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (6271) BT_API: BT enabled[0m
+[0;32mI (6271) BT_AV: Bluedroid status: 0[0m
+[0;32mI (6731) BT_AV: Bluedroid status: 1[0m
+[0;32mI (6831) BT_AV: app_task_handler[0m
+[0;33mW (6831) BT_BTC: btc_avrc_tg_set_rn_supported_evt failed: AVRC TG not yet initialized[0m
+
+[0;33mW (6841) BT_BTC: A2DP Enable with AVRC[0m
+[0;33mW (6841) BT_AVRC: For AVRCP Target Cateory 1 and 3, SDP record shall contain additional protocol list[0m
+[0;32mI (6861) BT_AV: event: 10[0m
+[0;32mI (6861) BT_AV: event: 10[0m
+[0;32mI (6871) BT_AV: event: 10[0m
+[0;32mI (6871) BT_AV: event: 10[0m
+[0;32mI (16831) BT_AV: set_scan_mode_connectable false[0m
+[0;32mI (16831) BT_AV: Starting device discovery...[0m
+[0;32mI (16831) RCCT: AVRC profile state changed: 0[0m
+[0;32mI (16831) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0x4[0m
+[0;32mI (16851) BT_AV: Discovery started.[0m
+[0;32mI (26831) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (28741) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (28741) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (28741) BT_AV: --RSSI: -39[0m
+[0;32mI (28741) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (28741) BT_AV: --Name: LE208[0m
+[0;32mI (28751) BT_A2DP_SRC: Tim thay: "LE208" [92A1D467F280] rssi=-39[0m
+[0;32mI (28751) BT_AV: --Result: Target device not found[0m
+[0;32mI (28761) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (28761) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (28771) BT_AV: --RSSI: -39[0m
+[0;32mI (28771) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (28771) BT_AV: --Name: LE208[0m
+[0;32mI (28781) BT_AV: --Result: Target device not found[0m
+[0;32mI (29201) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (29201) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (29201) BT_AV: --RSSI: -36[0m
+[0;32mI (29201) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (29201) BT_AV: --Name: LE208[0m
+[0;32mI (29211) BT_AV: --Result: Target device not found[0m
+[0;32mI (29211) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (29221) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (29221) BT_AV: --RSSI: -37[0m
+[0;32mI (29221) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (29231) BT_AV: --Name: LE208[0m
+[0;32mI (29231) BT_AV: --Result: Target device not found[0m
+[0;32mI (29651) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (29661) BT_AV: Discovery started.[0m
+[0;32mI (29701) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (29701) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (29701) BT_AV: --RSSI: -38[0m
+[0;32mI (29701) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (29701) BT_AV: --Name: LE208[0m
+[0;32mI (29711) BT_AV: --Result: Target device not found[0m
+[0;32mI (29711) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (29721) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (29721) BT_AV: --RSSI: -39[0m
+[0;32mI (29721) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (29731) BT_AV: --Name: LE208[0m
+[0;32mI (29731) BT_AV: --Result: Target device not found[0m
+[0;32mI (29951) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (29951) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (29951) BT_AV: --RSSI: -37[0m
+[0;32mI (29951) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (29951) BT_AV: --Name: LE208[0m
+[0;32mI (29961) BT_AV: --Result: Target device not found[0m
+[0;32mI (29961) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (29971) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (29971) BT_AV: --RSSI: -37[0m
+[0;32mI (29971) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (29981) BT_AV: --Name: LE208[0m
+[0;32mI (29981) BT_AV: --Result: Target device not found[0m
+[0;32mI (30201) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (30201) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (30201) BT_AV: --RSSI: -41[0m
+[0;32mI (30201) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (30211) BT_AV: --Name: LE208[0m
+[0;32mI (30211) BT_AV: --Result: Target device not found[0m
+[0;32mI (30211) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (30221) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (30221) BT_AV: --RSSI: -40[0m
+[0;32mI (30221) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (30231) BT_AV: --Name: LE208[0m
+[0;32mI (30231) BT_AV: --Result: Target device not found[0m
+[0;32mI (30701) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (30701) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (30701) BT_AV: --RSSI: -53[0m
+[0;32mI (30701) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (30711) BT_AV: --Name: LE208[0m
+[0;32mI (30711) BT_AV: --Result: Target device not found[0m
+[0;32mI (30711) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (30721) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (30721) BT_AV: --RSSI: -53[0m
+[0;32mI (30721) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (30731) BT_AV: --Name: LE208[0m
+[0;32mI (30731) BT_AV: --Result: Target device not found[0m
+[0;32mI (31701) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (31701) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (31701) BT_AV: --RSSI: -54[0m
+[0;32mI (31701) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (31711) BT_AV: --Name: LE208[0m
+[0;32mI (31711) BT_AV: --Result: Target device not found[0m
+[0;32mI (31711) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (31721) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (31721) BT_AV: --RSSI: -56[0m
+[0;32mI (31721) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (31731) BT_AV: --Name: LE208[0m
+[0;32mI (31731) BT_AV: --Result: Target device not found[0m
+[0;32mI (32201) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32201) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32201) BT_AV: --RSSI: -49[0m
+[0;32mI (32201) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32211) BT_AV: --Name: LE208[0m
+[0;32mI (32211) BT_AV: --Result: Target device not found[0m
+[0;32mI (32211) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32221) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32221) BT_AV: --RSSI: -50[0m
+[0;32mI (32221) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32231) BT_AV: --Name: LE208[0m
+[0;32mI (32231) BT_AV: --Result: Target device not found[0m
+[0;32mI (32251) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32251) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32251) BT_AV: --RSSI: -50[0m
+[0;32mI (32251) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32261) BT_AV: --Name: LE208[0m
+[0;32mI (32261) BT_AV: --Result: Target device not found[0m
+[0;32mI (32261) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32271) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32271) BT_AV: --RSSI: -49[0m
+[0;32mI (32271) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32281) BT_AV: --Name: LE208[0m
+[0;32mI (32281) BT_AV: --Result: Target device not found[0m
+[0;32mI (32401) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32401) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32401) BT_AV: --RSSI: -50[0m
+[0;32mI (32401) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32411) BT_AV: --Name: LE208[0m
+[0;32mI (32411) BT_AV: --Result: Target device not found[0m
+[0;32mI (32411) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32421) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32421) BT_AV: --RSSI: -51[0m
+[0;32mI (32421) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32431) BT_AV: --Name: LE208[0m
+[0;32mI (32431) BT_AV: --Result: Target device not found[0m
+[0;32mI (32501) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32501) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32501) BT_AV: --RSSI: -51[0m
+[0;32mI (32501) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32511) BT_AV: --Name: LE208[0m
+[0;32mI (32511) BT_AV: --Result: Target device not found[0m
+[0;32mI (32511) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32521) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32521) BT_AV: --RSSI: -51[0m
+[0;32mI (32521) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32531) BT_AV: --Name: LE208[0m
+[0;32mI (32531) BT_AV: --Result: Target device not found[0m
+[0;32mI (32651) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32651) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32651) BT_AV: --RSSI: -65[0m
+[0;32mI (32651) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32661) BT_AV: --Name: LE208[0m
+[0;32mI (32661) BT_AV: --Result: Target device not found[0m
+[0;32mI (32661) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (32671) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (32671) BT_AV: --RSSI: -63[0m
+[0;32mI (32671) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (32681) BT_AV: --Name: LE208[0m
+[0;32mI (32681) BT_AV: --Result: Target device not found[0m

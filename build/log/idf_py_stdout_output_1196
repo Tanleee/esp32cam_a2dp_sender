@@ -1,0 +1,486 @@
+Command: C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe C:\esp\v6.0.2\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\app-template.elf D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe' 'C:\esp\v6.0.2\esp-idf\tools\idf.py' '-p' 'COM3'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x33 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15820
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Nov  1 2026 16:48:04[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v1.0[0m
+[0;32mI (31) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=4eb60h (322400) map[0m
+[0;32mI (200) esp_image: segment 1: paddr=0005eb88 vaddr=3ffbdb60 size=01490h (  5264) load[0m
+[0;32mI (203) esp_image: segment 2: paddr=00060020 vaddr=400d0020 size=11abd8h (1158104) map[0m
+[0;32mI (617) esp_image: segment 3: paddr=0017ac00 vaddr=3ffbeff0 size=05020h ( 20512) load[0m
+[0;32mI (625) esp_image: segment 4: paddr=0017fc28 vaddr=40080000 size=1be6ch (114284) load[0m
+[0;32mI (672) esp_image: segment 5: paddr=0019ba9c vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (687) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (687) boot: Disabling RNG early entropy source...[0m
+[0;32mI (697) quad_psram: This chip is ESP32-D0WD[0m
+[0;32mI (699) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (699) esp_psram: Speed: 40MHz[0m
+[0;32mI (699) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m
+[0;33mW (705) esp_psram: Virtual address not enough for PSRAM, map as much as we can. 4MB is mapped[0m
+[0;32mI (713) cpu_start: Multicore app[0m
+[0;32mI (1619) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1626) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (1627) cpu_start: Pro cpu start user code[0m
+[0;32mI (1627) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (1629) app_init: Application information:[0m
+[0;32mI (1633) app_init: Project name:     app-template[0m
+[0;32mI (1637) app_init: App version:      01cac2d-dirty[0m
+[0;32mI (1642) app_init: Compile time:     Nov  6 2026 16:48:49[0m
+[0;32mI (1647) app_init: ELF file SHA256:  68aa72949...[0m
+[0;32mI (1651) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (1655) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1659) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (1663) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1667) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1674) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (1679) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (1684) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (1689) heap_init: At 3FFD11A8 len 0000EE58 (59 KiB): DRAM[0m
+[0;32mI (1694) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (1700) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (1705) heap_init: At 4009BE6C len 00004194 (16 KiB): IRAM[0m
+[0;32mI (1711) esp_psram: Adding pool of 4096K of PSRAM memory to heap allocator[0m
+[0;32mI (1719) spi_flash: detected chip: gd[0m
+[0;32mI (1721) spi_flash: flash io: dio[0m
+[0;33mW (1724) spi_flash: Detected size(8192k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+[0;32mI (1738) coexist: coex firmware version: 6f3d08c[0m
+[0;32mI (1742) main_task: Started on CPU0[0m
+[0;32mI (1742) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1752) main_task: Calling app_main()[0m
+[0;32mI (1792) APP_CTRL: Buffer ghi am 64000 byte nam trong PSRAM[0m
+[0;32mI (1802) BT_A2DP_SRC: Da nap 1 thiet bi Bluetooth da luu[0m
+[0;32mI (1802) BT_A2DP_SRC: Da cau hinh A2DP source (Bluetooth dang TAT, cho lenh tu ESP32-C3)[0m
+[0;32mI (1822) wifi:wifi driver task: 3ffd7ee4, prio:23, stack:6656, core=0[0m
+[0;32mI (1832) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (1832) wifi:wifi certification version: v7.0[0m
+[0;32mI (1832) wifi:config NVS flash: enabled[0m
+[0;32mI (1832) wifi:config nano formatting: disabled[0m
+[0;32mI (1842) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1842) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1852) wifi:Init management short buffer num: 32[0m
+[0;32mI (1852) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1862) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1862) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1872) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1872) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1882) wifi_init: rx ba win: 6[0m
+[0;32mI (1882) wifi_init: accept mbox: 6[0m
+[0;32mI (1882) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1882) wifi_init: udp mbox: 6[0m
+[0;32mI (1882) wifi_init: tcp mbox: 6[0m
+[0;32mI (1892) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1892) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1892) wifi_init: tcp mss: 1440[0m
+[0;32mI (1902) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1912) BACKLIGHT: Da khoi tao PWM do sang man hinh tren GPIO14[0m
+[0;32mI (1912) MAIN: Heap sau khoi tao: internal free=58695 largest=57344 | psram free=4057288[0m
+[0;32mI (1912) main_task: Returned from app_main()[0m
+[0;32mI (1922) BACKLIGHT: Do sang man hinh -> 100%[0m
+[0;32mI (6202) SYS_CTRL: Heap truoc khi bat BT: free=63023 largest=57344 min_ever=58695 (WiFi TAT)[0m
+[0;32mI (6212) BT_A2DP_SRC: Bat Bluetooth + bat dau quet thiet bi xung quanh...[0m
+[0;32mI (6212) BT_API: mode is ESP_BT_MODE_CLASSIC_BT[0m
+[0;32mI (6212) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (6222) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (6222) BTDM_INIT: Bluetooth MAC: a4:cf:12:51:b3:d6[0m
+[0;32mI (6232) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (6332) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (6842) BT_API: BT enabled[0m
+[0;32mI (6842) BT_AV: Bluedroid status: 0[0m
+[0;32mI (6852) BT_AV: Bluedroid status: 1[0m
+[0;32mI (6952) BT_AV: app_task_handler[0m
+[0;33mW (6952) BT_BTC: btc_avrc_tg_set_rn_supported_evt failed: AVRC TG not yet initialized[0m
+
+[0;33mW (6962) BT_BTC: A2DP Enable with AVRC[0m
+[0;33mW (6962) BT_AVRC: For AVRCP Target Cateory 1 and 3, SDP record shall contain additional protocol list[0m
+[0;32mI (6982) BT_AV: event: 10[0m
+[0;32mI (6982) BT_AV: event: 10[0m
+[0;32mI (6982) BT_AV: event: 10[0m
+[0;32mI (6982) BT_AV: event: 10[0m
+[0;32mI (16952) BT_AV: set_scan_mode_connectable false[0m
+[0;32mI (16952) BT_AV: Starting device discovery...[0m
+[0;32mI (16952) RCCT: AVRC profile state changed: 0[0m
+[0;32mI (16952) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0x4[0m
+[0;32mI (16972) BT_AV: Discovery started.[0m
+[0;32mI (22462) BT_A2DP_SRC: Yeu cau ket noi toi [A4403D52BE6D] (cho thay lai thiet bi trong luc quet)[0m
+[0;32mI (26952) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (29772) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (29782) BT_AV: Discovery started.[0m
+[0;32mI (36952) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (42592) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (42592) BT_AV: Discovery started.[0m
+[0;32mI (46952) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (55402) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (55412) BT_AV: Discovery started.[0m
+[0;32mI (56442) BT_AV: Scanned device: a4:40:3d:52:be:6d[0m
+[0;32mI (56442) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (56442) BT_AV: --RSSI: -51[0m
+[0;32mI (56442) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (56442) BT_AV: --Name: Baseus Bass 30 Max[0m
+[0;32mI (56442) BT_A2DP_SRC: Tim thay: "Baseus Bass 30 Max" [A4403D52BE6D] rssi=-51[0m
+[0;32mI (56452) BT_A2DP_SRC: Dang ket noi toi "Baseus Bass 30 Max" [A4403D52BE6D]...[0m
+[0;32mI (56462) BT_AV: --Result: Target device found[0m
+[0;32mI (56462) BT_AV: Cancel device discovery ...[0m
+[0;32mI (56472) BT_AV: Device discovery stopped.[0m
+[0;32mI (56472) BT_AV: a2dp connecting to peer: Baseus Bass 30 Max[0m
+[0;32mI (56472) BT_AV: ==> a2dp connecting to: a4:40:3d:52:be:6d[0m
+[0;33mW (56482) BT_APPL: reset flags[0m
+[0;32mI (56492) BT_AV: bt_app_av_sm_hdlr state CONNECTING, evt 0x0[0m
+[0;32mI (56492) BT_A2DP_SRC: Trang thai ket noi A2DP: 1[0m
+[0;32mI (56952) BT_AV: bt_app_av_sm_hdlr state CONNECTING, evt 0xff00[0m
+[0;32mI (56952) BT_AV: bt_app_av_sm_hdlr state CONNECTING, evt 0x3[0m
+[0;32mI (56952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x3[0m
+[0;33mW (57952) BT_HCI: hcif conn complete: hdl 0x80, st 0x0[0m
+[0;32mI (57952) BT_AV: ESP_BT_GAP_ACL_CONN_CMPL_STAT_EVT[0m
+[0;32mI (58092) BT_AV: ESP_BT_GAP_ENC_CHG_EVT[0m
+[0;32mI (58482) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x2[0m
+[0;32mI (58482) BT_AV: ESP_A2D_AUDIO_CFG_EVT[0m
+[0;32mI (58522) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x9[0m
+[0;32mI (58522) BT_AV: bt_app_av_state_connected_hdlr, delay value: 2100 * 1/10 ms[0m
+[0;33mW (58602) BT_APPL: new conn_srvc id:18, app_id:0[0m
+[0;32mI (58602) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x0[0m
+[0;32mI (58612) BT_A2DP_SRC: Trang thai ket noi A2DP: 2[0m
+[0;32mI (58612) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xa[0m
+[0;32mI (58612) BT_A2DP_SRC: Da ket noi + luu thiet bi "Baseus Bass 30 Max"[0m
+[0;33mW (58612) BT_AV: bt_app_av_state_connected_hdlr unhandled event: 10[0m
+[0;32mI (58962) RCCT: AVRC conn_state event: state 1, [a4:40:3d:52:be:6d][0m
+[0;32mI (58962) BT_AV: esp_avrc_ct_send_register_notification_cmd[0m
+[0;32mI (58962) RCCT: AVRC remote features 24b, TG features 2[0m
+[0;32mI (58982) RCCT: remote rn_cap: count 1, bitmask 0x2000[0m
+[0;32mI (59492) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x9[0m
+[0;32mI (59492) BT_AV: bt_app_av_state_connected_hdlr, delay value: 2100 * 1/10 ms[0m
+[0;33mW (65802) BT_HCI: hci cmd send: sniff: hdl 0x80, intv(400 800)[0m
+[0;33mW (65812) BT_HCI: hcif mode change: hdl 0x80, mode 2, intv 800, status 0x0[0m
+[0;32mI (65812) BT_AV: ESP_BT_GAP_MODE_CHG_EVT mode:2[0m
+[0;32mI (66952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (66952) BT_AV: a2dp media ready checking ...[0m
+[0;32mI (66952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x3[0m
+[0;32mI (66952) BT_AV: a2dp media ready, starting ...[0m
+[0;33mW (66962) BT_HCI: hci cmd send: unsniff: hdl 0x80[0m
+[0;33mW (66962) BT_APPL: new conn_srvc id:18, app_id:1[0m
+[0;33mW (67382) BT_HCI: hcif mode change: hdl 0x80, mode 0, intv 0, status 0x0[0m
+[0;32mI (67382) BT_AV: ESP_BT_GAP_MODE_CHG_EVT mode:0[0m
+[0;32mI (67412) BT_LOG: bta_av_link_role_ok hndl:x41 role:0 conn_audio:x1 bits:1 features:x864b[0m
+
+[0;32mI (67412) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x3[0m
+[0;32mI (67422) BT_AV: a2dp media start successfully.[0m
+[0;32mI (67422) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x1[0m
+[0;32mI (76952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (86952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (87572) RCCT: AVRC event notification: 13[0m
+[0;32mI (87572) RCCT: Volume changed: 56[0m
+[0;32mI (87572) RCCT: Set absolute volume: volume 56[0m
+[0;32mI (87572) BT_AV: set_volume: 56[0m
+[0;32mI (87592) RCCT: Set absolute volume response: volume 56[0m
+[0;32mI (87592) RCCT: Set absolute volume response: volume 56[0m
+[0;32mI (89342) RCCT: AVRC event notification: 13[0m
+[0;32mI (89342) RCCT: Volume changed: 64[0m
+[0;32mI (89342) RCCT: Set absolute volume: volume 64[0m
+[0;32mI (89342) BT_AV: set_volume: 64[0m
+[0;32mI (89382) RCCT: Set absolute volume response: volume 64[0m
+[0;32mI (89382) RCCT: Set absolute volume response: volume 64[0m
+[0;32mI (89792) RCCT: AVRC event notification: 13[0m
+[0;32mI (89792) RCCT: Volume changed: 72[0m
+[0;32mI (89792) RCCT: Set absolute volume: volume 72[0m
+[0;32mI (89792) BT_AV: set_volume: 72[0m
+[0;32mI (89812) RCCT: Set absolute volume response: volume 72[0m
+[0;32mI (89812) RCCT: Set absolute volume response: volume 72[0m
+[0;32mI (90122) RCCT: AVRC event notification: 13[0m
+[0;32mI (90122) RCCT: Volume changed: 80[0m
+[0;32mI (90122) RCCT: Set absolute volume: volume 80[0m
+[0;32mI (90122) BT_AV: set_volume: 80[0m
+[0;32mI (90172) RCCT: Set absolute volume response: volume 80[0m
+[0;32mI (90172) RCCT: Set absolute volume response: volume 80[0m
+[0;32mI (90482) RCCT: AVRC event notification: 13[0m
+[0;32mI (90482) RCCT: Volume changed: 88[0m
+[0;32mI (90482) RCCT: Set absolute volume: volume 88[0m
+[0;32mI (90482) BT_AV: set_volume: 88[0m
+[0;32mI (90502) RCCT: Set absolute volume response: volume 88[0m
+[0;32mI (90502) RCCT: Set absolute volume response: volume 88[0m
+[0;32mI (91262) RCCT: AVRC event notification: 13[0m
+[0;32mI (91262) RCCT: Volume changed: 96[0m
+[0;32mI (91262) RCCT: Set absolute volume: volume 96[0m
+[0;32mI (91262) BT_AV: set_volume: 96[0m
+[0;32mI (91282) RCCT: Set absolute volume response: volume 96[0m
+[0;32mI (91282) RCCT: Set absolute volume response: volume 96[0m
+[0;32mI (91592) RCCT: AVRC event notification: 13[0m
+[0;32mI (91592) RCCT: Volume changed: 104[0m
+[0;32mI (91592) RCCT: Set absolute volume: volume 104[0m
+[0;32mI (91592) BT_AV: set_volume: 104[0m
+[0;32mI (91612) RCCT: Set absolute volume response: volume 104[0m
+[0;32mI (91612) RCCT: Set absolute volume response: volume 104[0m
+[0;32mI (92012) RCCT: AVRC event notification: 13[0m
+[0;32mI (92012) RCCT: Volume changed: 112[0m
+[0;32mI (92012) RCCT: Set absolute volume: volume 112[0m
+[0;32mI (92012) BT_AV: set_volume: 112[0m
+[0;32mI (92052) RCCT: Set absolute volume response: volume 112[0m
+[0;32mI (92052) RCCT: Set absolute volume response: volume 112[0m
+[0;32mI (93182) RCCT: AVRC event notification: 13[0m
+[0;32mI (93182) RCCT: Volume changed: 104[0m
+[0;32mI (93182) RCCT: Set absolute volume: volume 104[0m
+[0;32mI (93182) BT_AV: set_volume: 104[0m
+[0;32mI (93202) RCCT: Set absolute volume response: volume 104[0m
+[0;32mI (93202) RCCT: Set absolute volume response: volume 104[0m
+[0;32mI (93452) RCCT: AVRC event notification: 13[0m
+[0;32mI (93452) RCCT: Volume changed: 96[0m
+[0;32mI (93452) RCCT: Set absolute volume: volume 96[0m
+[0;32mI (93452) BT_AV: set_volume: 96[0m
+[0;32mI (93472) RCCT: Set absolute volume response: volume 96[0m
+[0;32mI (93472) RCCT: Set absolute volume response: volume 96[0m
+[0;32mI (93932) RCCT: AVRC event notification: 13[0m
+[0;32mI (93932) RCCT: Volume changed: 88[0m
+[0;32mI (93932) RCCT: Set absolute volume: volume 88[0m
+[0;32mI (93932) BT_AV: set_volume: 88[0m
+[0;32mI (93952) RCCT: Set absolute volume response: volume 88[0m
+[0;32mI (93952) RCCT: Set absolute volume response: volume 88[0m
+[0;32mI (96952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (97152) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (98972) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (99562) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (100032) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (100362) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (106952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (111072) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (111622) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (111962) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (112442) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (112982) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (113282) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (113732) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (114152) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (114592) VOL_BTN: VOL_DOWN -> da gui lenh qua UART sang ESP32-C3[0m
+����������������������������������������������������������������15442) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3
+[0;32mI (115952) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (116462) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (116952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (117172) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (117712) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (118222) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (118552) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (118912) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (119252) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (119642) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (120182) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (120602) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (121192) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (121512) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (126952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (136952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (146952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (156952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (166952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (176952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (186952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (196952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (206952) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+����������������������������������������������������������������213872) BT_A2DP_SRC: Tat Bluetooth
+[0;32mI (213872) BT_AV: disconect a2d: a4:40:3d:52:be:6d[0m
+[0;32mI (213872) BT_AV: ==> a2dp esp_a2d_source_disconnect from: a4:40:3d:52:be:6d[0m
+[0;33mW (213882) BT_APPL: bta_av_str_stopped status 0[0m
+[0;32mI (213882) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x0[0m
+[0;32mI (213882) BT_A2DP_SRC: Trang thai ket noi A2DP: 3[0m
+[1;31mE (213882) BT_APPL: warning : no command pending, ignore ack[0m
+[0;33mW (213892) BT_APPL: Media task Scheduled after Suspend[0m
+[0;32mI (214182) RCCT: AVRC profile state changed: 3[0m
+[0;32mI (214182) BT_AV: end[0m
+[0;32mI (214182) BT_AV: Available Heap: 4079184[0m
+[0;33mW (214232) BT_BTC: btc_avrc_ct_deinit not initialized[0m
+[0;32mI (214232) RCCT: AVRC profile state changed: 4[0m
+[0;33mW (214282) BT_BTC: btc_avrc_tg_deinit not initialized[0m
+[0;32mI (214382) BT_AV: Available Heap: 4079184[0m
+[0;32mI (214482) BT_AV: Available Heap: 4082704[0m
+[0;33mW (214712) BT_HCI: hci cmd send: sniff: hdl 0x80, intv(400 800)[0m
+[0;33mW (214732) BT_HCI: hcif mode change: hdl 0x80, mode 0, intv 0, status 0x24[0m
+[1;31mE (214732) BT_APPL: bta_dm_pm_btm_status hci_status=36[0m
+[0;32mI (214732) BT_AV: event: 10[0m
+[0;32mI (214732) BT_AV: event: 10[0m
+[0;32mI (214732) BT_AV: event: 10[0m
+[0;32mI (214742) BT_AV: event: 10[0m
+[0;32mI (214742) BT_AV: ESP_BT_GAP_MODE_CHG_EVT mode:0[0m
+[0;33mW (215732) BT_HCI: hcif disc complete: hdl 0x80, rsn 0x13 dev_find 1[0m
+[0;32mI (215732) BT_AV: ESP_BT_GAP_ACL_DISCONN_CMPL_STAT_EVT[0m
+[0;32mI (215732) BT_A2DP_SRC: Trang thai ket noi A2DP: 0[0m
+[0;32mI (217132) SYS_CTRL: Heap truoc khi bat BT: free=38975 largest=31744 min_ever=29411 (WiFi TAT)[0m
+[0;32mI (217132) BT_A2DP_SRC: Bat Bluetooth + bat dau quet thiet bi xung quanh...[0m
+[0;32mI (217142) BT_API: mode is ESP_BT_MODE_CLASSIC_BT[0m
+[0;32mI (217142) BT_AV: Bluedroid status: 2[0m
+[0;32mI (217152) BT_AV: app_task_handler[0m
+[0;33mW (217152) BT_BTC: btc_avrc_tg_set_rn_supported_evt failed: AVRC TG not yet initialized[0m
+
+[0;33mW (217162) BT_BTC: A2DP Enable with AVRC[0m
+[0;33mW (217162) BT_AVRC: For AVRCP Target Cateory 1 and 3, SDP record shall contain additional protocol list[0m
+[0;32mI (217192) BT_AV: event: 10[0m
+[0;32mI (217192) BT_AV: event: 10[0m
+[0;32mI (217192) BT_AV: event: 10[0m
+[0;32mI (217192) BT_AV: event: 10[0m
+[0;32mI (225122) BT_A2DP_SRC: Yeu cau ket noi toi [A4403D52BE6D] (cho thay lai thiet bi trong luc quet)[0m
+[0;32mI (227152) BT_AV: set_scan_mode_connectable false[0m
+[0;32mI (227152) BT_AV: Starting device discovery...[0m
+[0;32mI (227152) RCCT: AVRC profile state changed: 0[0m
+[0;32mI (227152) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0x4[0m
+[0;32mI (227162) BT_AV: Discovery started.[0m
+[0;32mI (227202) BT_AV: Scanned device: a4:40:3d:52:be:6d[0m
+[0;32mI (227202) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (227202) BT_AV: --RSSI: -48[0m
+[0;32mI (227202) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (227202) BT_AV: --Name: Baseus Bass 30 Max[0m
+[0;32mI (227212) BT_A2DP_SRC: Tim thay: "Baseus Bass 30 Max" [A4403D52BE6D] rssi=-48[0m
+[0;32mI (227212) BT_A2DP_SRC: Dang ket noi toi "Baseus Bass 30 Max" [A4403D52BE6D]...[0m
+[0;32mI (227222) BT_AV: --Result: Target device found[0m
+[0;32mI (227232) BT_AV: Cancel device discovery ...[0m
+[0;32mI (227232) BT_AV: Device discovery stopped.[0m
+[0;32mI (227232) BT_AV: a2dp connecting to peer: Baseus Bass 30 Max[0m
+[0;32mI (227242) BT_AV: ==> a2dp connecting to: a4:40:3d:52:be:6d[0m
+[0;33mW (227242) BT_APPL: reset flags[0m
+[0;32mI (227252) BT_AV: bt_app_av_sm_hdlr state CONNECTING, evt 0x0[0m
+[0;32mI (227262) BT_A2DP_SRC: Trang thai ket noi A2DP: 1[0m
+[0;33mW (228732) BT_HCI: hcif conn complete: hdl 0x80, st 0x0[0m
+[0;32mI (228742) BT_AV: ESP_BT_GAP_ACL_CONN_CMPL_STAT_EVT[0m
+[0;32mI (229282) BT_AV: bt_app_av_sm_hdlr state CONNECTING, evt 0x2[0m
+[0;32mI (229282) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x3[0m
+[0;32mI (229322) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x9[0m
+[0;32mI (229322) BT_AV: bt_app_av_state_connected_hdlr, delay value: 2100 * 1/10 ms[0m
+[0;33mW (229382) BT_APPL: new conn_srvc id:18, app_id:0[0m
+[0;32mI (229382) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x0[0m
+[0;32mI (229382) BT_A2DP_SRC: Trang thai ket noi A2DP: 2[0m
+[0;32mI (229382) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xa[0m
+[0;32mI (229382) BT_A2DP_SRC: Da ket noi + luu thiet bi "Baseus Bass 30 Max"[0m
+[0;33mW (229392) BT_AV: bt_app_av_state_connected_hdlr unhandled event: 10[0m
+[0;32mI (229732) RCCT: AVRC conn_state event: state 1, [a4:40:3d:52:be:6d][0m
+[0;32mI (229732) BT_AV: esp_avrc_ct_send_register_notification_cmd[0m
+[0;32mI (229732) RCCT: AVRC remote features 24b, TG features 2[0m
+[0;32mI (229772) RCCT: remote rn_cap: count 1, bitmask 0x2000[0m
+[0;32mI (230292) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x9[0m
+[0;32mI (230292) BT_AV: bt_app_av_state_connected_hdlr, delay value: 2100 * 1/10 ms[0m
+[0;33mW (236582) BT_HCI: hci cmd send: sniff: hdl 0x80, intv(400 800)[0m
+[0;33mW (236592) BT_HCI: hcif mode change: hdl 0x80, mode 2, intv 800, status 0x0[0m
+[0;32mI (236592) BT_AV: ESP_BT_GAP_MODE_CHG_EVT mode:2[0m
+[0;32mI (237152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (237152) BT_AV: a2dp media ready checking ...[0m
+[0;32mI (237152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x3[0m
+[0;32mI (237152) BT_AV: a2dp media ready, starting ...[0m
+[0;33mW (237162) BT_HCI: hci cmd send: unsniff: hdl 0x80[0m
+[0;33mW (237162) BT_APPL: new conn_srvc id:18, app_id:1[0m
+[0;33mW (237372) BT_HCI: hcif mode change: hdl 0x80, mode 0, intv 0, status 0x0[0m
+[0;32mI (237382) BT_AV: ESP_BT_GAP_MODE_CHG_EVT mode:0[0m
+[0;32mI (237412) BT_LOG: bta_av_link_role_ok hndl:x41 role:0 conn_audio:x1 bits:1 features:x864b[0m
+
+[0;32mI (237412) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x3[0m
+[0;32mI (237412) BT_AV: a2dp media start successfully.[0m
+[0;32mI (237422) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x1[0m
+[0;32mI (247152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (257152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (267152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (277152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (287152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (297152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (307152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (317152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (327152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (337152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (347152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (357152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (367152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (377152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (387152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (397152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (404682) VOL_BTN: VOL_UP -> da gui lenh qua UART sang ESP32-C3[0m
+[0;32mI (407152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+���������������������������������������������������������������� (417152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00
+[0;32mI (427152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (437152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (447152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (457152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (467152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (477152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (487152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (497152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (507152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (511392) wifi:mode : sta (a4:cf:12:51:b3:d4)[0m
+[0;32mI (511392) wifi:enable tsf[0m
+[0;32mI (511392) WIFI_MGR: Da bat radio WiFi[0m
+[0;32mI (517152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (517952) SYS_CTRL: Bat dau ket noi WiFi: C427[0m
+[0;33mW (517952) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (517972) wifi:new:<9,0>, old:<1,0>, ap:<255,255>, sta:<9,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (517972) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (517992) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (518012) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (518062) wifi:connected with C427, aid = 20, channel 9, BW20, bssid = 84:3c:99:d8:4f:2d[0m
+[0;32mI (518062) wifi:security: WPA2-PSK, phy: bgn, rssi: -48, cipher(pairwise:0x3, group:0x1), pmf:0[0m
+[0;32mI (518072) wifi:pm start, type: 1[0m
+
+[0;32mI (518072) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (518082) wifi:<ba-add>idx:0 (ifx:0, 84:3c:99:d8:4f:2d), tid:0, ssn:2, winSize:64[0m
+[0;32mI (518092) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (523192) esp_netif_handlers: sta ip: 192.168.1.8, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (523192) WIFI_MGR: Da co IP, ssid="C427"[0m
+[0;32mI (523192) WIFI_MGR: Da luu ssid/password vao NVS: C427[0m
+[0;32mI (526302) SYS_CTRL: Da dong bo thoi gian tu may chu NTP[0m
+[0;32mI (527152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+����������������������������������������������������������������(537152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00
+[0;32mI (547152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (557152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (567152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (577152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (587152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (597152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (607152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (617152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (627152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (636692) RCCT: AVRC event notification: 13[0m
+[0;32mI (636692) RCCT: Volume changed: 80[0m
+[0;32mI (636692) RCCT: Set absolute volume: volume 80[0m
+[0;32mI (636692) BT_AV: set_volume: 80[0m
+[0;32mI (636732) RCCT: Set absolute volume response: volume 80[0m
+[0;32mI (636732) RCCT: Set absolute volume response: volume 80[0m
+[0;32mI (637152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (647152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (657152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (667152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (677152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (687152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (697152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (707152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (717152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (727152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (736222) RCCT: AVRC event notification: 13[0m
+[0;32mI (736222) RCCT: Volume changed: 72[0m
+[0;32mI (736222) RCCT: Set absolute volume: volume 72[0m
+[0;32mI (736222) BT_AV: set_volume: 72[0m
+[0;32mI (736272) RCCT: Set absolute volume response: volume 72[0m
+[0;32mI (736272) RCCT: Set absolute volume response: volume 72[0m
+[0;32mI (737152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (747152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (757152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (767152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (777152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (787152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (797152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (807152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (817152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (827152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (837152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (847152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (857152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (867152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (877152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (887152) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m

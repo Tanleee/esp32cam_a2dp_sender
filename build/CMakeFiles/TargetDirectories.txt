@@ -533,6 +533,12 @@ D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/C
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/CMakeFiles/install.dir
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/CMakeFiles/install/local.dir
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/CMakeFiles/install/strip.dir
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/device/CMakeFiles/edit_cache.dir
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/device/CMakeFiles/rebuild_cache.dir
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/device/CMakeFiles/list_install_components.dir
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/device/CMakeFiles/install.dir
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/device/CMakeFiles/install/local.dir
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/device/CMakeFiles/install/strip.dir
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_driver_uart/CMakeFiles/edit_cache.dir
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_driver_uart/CMakeFiles/rebuild_cache.dir

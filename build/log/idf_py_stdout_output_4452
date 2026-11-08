@@ -1,0 +1,445 @@
+Command: C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe C:\esp\v6.0.2\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\app-template.elf D:\Espressif\Workspace\Music_player_bluetooth_esp32cam\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe' 'C:\esp\v6.0.2\esp-idf\tools\idf.py' '-p' 'COM3'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x33 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15820
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Nov  1 2026 16:48:04[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v1.0[0m
+[0;32mI (31) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=4e6a0h (321184) map[0m
+[0;32mI (200) esp_image: segment 1: paddr=0005e6c8 vaddr=3ffbdb60 size=01950h (  6480) load[0m
+[0;32mI (203) esp_image: segment 2: paddr=00060020 vaddr=400d0020 size=119334h (1151796) map[0m
+[0;32mI (614) esp_image: segment 3: paddr=0017935c vaddr=3ffbf4b0 size=04b60h ( 19296) load[0m
+[0;32mI (622) esp_image: segment 4: paddr=0017dec4 vaddr=40080000 size=1be6ch (114284) load[0m
+[0;32mI (669) esp_image: segment 5: paddr=00199d38 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (684) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (684) boot: Disabling RNG early entropy source...[0m
+[0;32mI (694) quad_psram: This chip is ESP32-D0WD[0m
+[0;32mI (696) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (696) esp_psram: Speed: 40MHz[0m
+[0;32mI (696) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m
+[0;33mW (702) esp_psram: Virtual address not enough for PSRAM, map as much as we can. 4MB is mapped[0m
+[0;32mI (710) cpu_start: Multicore app[0m
+[0;32mI (1615) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1623) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (1623) cpu_start: Pro cpu start user code[0m
+[0;32mI (1623) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (1626) app_init: Application information:[0m
+[0;32mI (1629) app_init: Project name:     app-template[0m
+[0;32mI (1634) app_init: App version:      01cac2d-dirty[0m
+[0;32mI (1638) app_init: Compile time:     Nov  6 2026 16:48:49[0m
+[0;32mI (1643) app_init: ELF file SHA256:  9789eded9...[0m
+[0;32mI (1648) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (1652) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1656) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (1660) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1664) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1670) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (1675) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (1680) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (1686) heap_init: At 3FFD0AE8 len 0000F518 (61 KiB): DRAM[0m
+[0;32mI (1691) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (1697) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (1702) heap_init: At 4009BE6C len 00004194 (16 KiB): IRAM[0m
+[0;32mI (1708) esp_psram: Adding pool of 4096K of PSRAM memory to heap allocator[0m
+[0;32mI (1715) spi_flash: detected chip: gd[0m
+[0;32mI (1717) spi_flash: flash io: dio[0m
+[0;33mW (1720) spi_flash: Detected size(8192k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+[0;32mI (1735) coexist: coex firmware version: 6f3d08c[0m
+[0;32mI (1738) main_task: Started on CPU0[0m
+[0;32mI (1738) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1748) main_task: Calling app_main()[0m
+[0;32mI (1788) APP_CTRL: Buffer ghi am 64000 byte nam trong PSRAM[0m
+[0;32mI (1788) BT_A2DP_SRC: Da cau hinh A2DP source (chua quet/ket noi, cho lenh tu ESP32-C3)[0m
+[0;32mI (1808) wifi:wifi driver task: 3ffd53b0, prio:23, stack:6656, core=0[0m
+[0;32mI (1818) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (1818) wifi:wifi certification version: v7.0[0m
+[0;32mI (1818) wifi:config NVS flash: enabled[0m
+[0;32mI (1818) wifi:config nano formatting: disabled[0m
+[0;32mI (1828) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1828) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1838) wifi:Init management short buffer num: 32[0m
+[0;32mI (1838) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1848) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1848) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1848) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1858) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1858) wifi_init: rx ba win: 6[0m
+[0;32mI (1858) wifi_init: accept mbox: 6[0m
+[0;32mI (1868) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1868) wifi_init: udp mbox: 6[0m
+[0;32mI (1868) wifi_init: tcp mbox: 6[0m
+[0;32mI (1878) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1878) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1878) wifi_init: tcp mss: 1440[0m
+[0;32mI (1888) wifi_init: WiFi/LWIP prefer SPIRAM[0m
+[0;32mI (1888) BACKLIGHT: Da khoi tao PWM do sang man hinh tren GPIO14[0m
+[0;32mI (1898) MAIN: Heap sau khoi tao: internal free=67179 largest=65536 | psram free=4057288[0m
+[0;32mI (1898) main_task: Returned from app_main()[0m
+[0;32mI (1908) BACKLIGHT: Do sang man hinh -> 100%[0m
+[0;33mW (5728) UART_LINK: Dong UART khong nhan dien: �&[0m
+[0;32mI (6988) UART_LINK: Nhan HELLO tu C3 -> gui lai INIT_DONE[0m
+[0;32mI (7008) BACKLIGHT: Do sang man hinh -> 100%[0m
+[0;32mI (11158) SYS_CTRL: Heap truoc khi bat BT: free=71507 largest=65536 min_ever=67179 (WiFi TAT)[0m
+[0;32mI (11158) BT_A2DP_SRC: Bat dau quet + ket noi toi 'LE208' theo yeu cau tu ESP32-C3...[0m
+[0;32mI (11168) BT_API: mode is ESP_BT_MODE_CLASSIC_BT[0m
+[0;32mI (11168) BTDM_INIT: BT controller compile version [e02a38e][0m
+[0;32mI (11178) BTDM_INIT: Using main XTAL as clock source[0m
+[0;32mI (11178) BTDM_INIT: Bluetooth MAC: a4:cf:12:51:b3:d6[0m
+[0;32mI (11188) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (11278) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (11298) BT_API: BT enabled[0m
+[0;32mI (11298) BT_AV: Bluedroid status: 0[0m
+[0;32mI (11778) BT_AV: Bluedroid status: 1[0m
+[0;32mI (11868) BT_AV: app_task_handler[0m
+[0;33mW (11878) BT_BTC: btc_avrc_tg_set_rn_supported_evt failed: AVRC TG not yet initialized[0m
+
+[0;33mW (11878) BT_BTC: A2DP Enable with AVRC[0m
+[0;33mW (11888) BT_AVRC: For AVRCP Target Cateory 1 and 3, SDP record shall contain additional protocol list[0m
+[0;32mI (11898) BT_AV: event: 10[0m
+[0;32mI (11898) BT_AV: event: 10[0m
+[0;32mI (11908) BT_AV: event: 10[0m
+[0;32mI (11908) BT_AV: event: 10[0m
+[0;32mI (21868) BT_AV: set_scan_mode_connectable false[0m
+[0;32mI (21868) BT_AV: Starting device discovery...[0m
+[0;32mI (21868) RCCT: AVRC profile state changed: 0[0m
+[0;32mI (21868) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0x4[0m
+[0;32mI (21878) BT_AV: Discovery started.[0m
+[0;32mI (31868) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (34688) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (34698) BT_AV: Discovery started.[0m
+[0;32mI (41868) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (47498) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (47508) BT_AV: Discovery started.[0m
+[0;32mI (51868) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (60318) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (60318) BT_AV: Discovery started.[0m
+[0;32mI (61868) BT_AV: bt_app_av_sm_hdlr state DISCOVERING, evt 0xff00[0m
+[0;32mI (70018) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (70018) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (70018) BT_AV: --RSSI: -37[0m
+[0;32mI (70018) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (70028) BT_AV: --Name: LE208[0m
+[0;32mI (70028) BT_AV: --Result: Target device found[0m
+[0;32mI (70028) BT_AV: Cancel device discovery ...[0m
+[0;32mI (70038) BT_AV: Scanned device: 92:a1:d4:67:f2:80[0m
+[0;32mI (70038) BT_AV: --Class of Device: 0x240404[0m
+[0;32mI (70048) BT_AV: --RSSI: -38[0m
+[0;32mI (70048) BT_AV: --Compatiblity: Compatible[0m
+[0;32mI (70048) BT_AV: --Name: LE208[0m
+[0;32mI (70058) BT_AV: --Result: Target device found[0m
+[0;32mI (70058) BT_AV: Cancel device discovery ...[0m
+[0;32mI (70068) BT_AV: Device discovery stopped.[0m
+[0;32mI (70068) BT_AV: a2dp connecting to peer: LE208[0m
+[0;32mI (70068) BT_AV: ==> a2dp connecting to: 92:a1:d4:67:f2:80[0m
+[0;32mI (70078) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (70088) BT_APPL: reset flags[0m
+[0;32mI (70098) BT_AV: bt_app_av_sm_hdlr state CONNECTING, evt 0x0[0m
+[0;32mI (70098) BT_A2DP_SRC: Trang thai ket noi Bluetooth: 1 (connected=0)[0m
+[0;32mI (70098) BT_AV: Discovery started.[0m
+[0;33mW (70208) BT_HCI: hcif conn complete: hdl 0x80, st 0x0[0m
+[0;32mI (70208) BT_AV: ESP_BT_GAP_ACL_CONN_CMPL_STAT_EVT[0m
+[0;32mI (71458) BT_AV: authentication success: LE208[0m
+[0;32mI (71538) BT_AV: ESP_BT_GAP_ENC_CHG_EVT[0m
+[0;32mI (71648) BT_AV: bt_app_av_sm_hdlr state CONNECTING, evt 0x2[0m
+[0;32mI (71648) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x3[0m
+[0;33mW (71748) BT_APPL: new conn_srvc id:18, app_id:0[0m
+[0;32mI (71748) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x0[0m
+[0;32mI (71748) BT_A2DP_SRC: Trang thai ket noi Bluetooth: 2 (connected=1)[0m
+[0;32mI (71748) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xa[0m
+[0;33mW (71758) BT_AV: bt_app_av_state_connected_hdlr unhandled event: 10[0m
+[0;32mI (71868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (71868) BT_AV: a2dp media ready checking ...[0m
+[0;32mI (71868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x3[0m
+[0;32mI (71868) BT_AV: a2dp media ready, starting ...[0m
+[0;33mW (71878) BT_APPL: new conn_srvc id:18, app_id:1[0m
+[0;32mI (71958) BT_LOG: bta_av_link_role_ok hndl:x41 role:0 conn_audio:x1 bits:1 features:x864b[0m
+
+[0;32mI (71958) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x3[0m
+[0;32mI (71958) BT_AV: a2dp media start successfully.[0m
+[0;32mI (71958) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x1[0m
+[0;32mI (73248) RCCT: AVRC conn_state event: state 1, [92:a1:d4:67:f2:80][0m
+[0;32mI (73248) BT_AV: esp_avrc_ct_send_register_notification_cmd[0m
+[0;32mI (73248) RCCT: AVRC remote features 24b, TG features 2[0m
+[0;32mI (73488) RCCT: remote rn_cap: count 2, bitmask 0x2040[0m
+[0;32mI (74918) RCCT: AVRC event notification: 13[0m
+[0;32mI (74918) RCCT: Volume changed: 96[0m
+[0;32mI (74918) RCCT: Set absolute volume: volume 96[0m
+[0;32mI (74918) BT_AV: set_volume: 96[0m
+[0;32mI (75018) RCCT: Set absolute volume response: volume 96[0m
+[0;32mI (75038) RCCT: Set absolute volume response: volume 96[0m
+[0;32mI (81868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (82908) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (82908) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (82918) BT_AV: Discovery started.[0m
+[0;32mI (91868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (95708) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (95708) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (95728) BT_AV: Discovery started.[0m
+[0;32mI (101868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (108518) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (108518) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (108538) BT_AV: Discovery started.[0m
+[0;32mI (111868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (121328) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (121328) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (121338) BT_AV: Discovery started.[0m
+[0;32mI (121868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (131868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (134138) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (134148) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (134148) BT_AV: Discovery started.[0m
+[0;32mI (141868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (146948) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (146948) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (146958) BT_AV: Discovery started.[0m
+[0;32mI (151868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (159758) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (159758) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (159768) BT_AV: Discovery started.[0m
+[0;32mI (161868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (171868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (172568) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (172568) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (172578) BT_AV: Discovery started.[0m
+[0;32mI (181868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (185378) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (185378) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (185388) BT_AV: Discovery started.[0m
+[0;32mI (191868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (198188) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (198188) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (198198) BT_AV: Discovery started.[0m
+[0;32mI (201868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (210998) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (210998) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (211008) BT_AV: Discovery started.[0m
+[0;32mI (211868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (221868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (223808) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (223808) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (223828) BT_AV: Discovery started.[0m
+[0;32mI (231868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (236618) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (236618) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (236628) BT_AV: Discovery started.[0m
+[0;32mI (241868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (249428) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (249438) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (249448) BT_AV: Discovery started.[0m
+[0;32mI (251868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (261868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (262238) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (262238) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (262248) BT_AV: Discovery started.[0m
+[0;32mI (271868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (275048) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (275048) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (275058) BT_AV: Discovery started.[0m
+[0;32mI (281868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (287858) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (287858) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (287868) BT_AV: Discovery started.[0m
+[0;32mI (291868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (300668) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (300668) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (300678) BT_AV: Discovery started.[0m
+[0;32mI (301868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (311868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (313478) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (313478) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (313488) BT_AV: Discovery started.[0m
+[0;32mI (321868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (326288) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (326288) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (326298) BT_AV: Discovery started.[0m
+[0;32mI (331868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (339098) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (339098) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (339108) BT_AV: Discovery started.[0m
+[0;32mI (341868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (351868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (351908) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (351908) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (351918) BT_AV: Discovery started.[0m
+[0;32mI (361868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (364718) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (364718) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (364728) BT_AV: Discovery started.[0m
+[0;32mI (371868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (377528) BT_AV: Device discovery failed, continue to discover...[0m
+[0;33mW (377528) BT_APPL: [0]: state:1, info:x20, avoid_rs 0[0m
+[0;32mI (377538) BT_AV: Discovery started.[0m
+[0;32mI (381868) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0xff00[0m
+[0;32mI (388748) RCCT: AVRC conn_state event: state 0, [92:a1:d4:67:f2:80][0m
+[0;33mW (388778) BT_APPL: bta_av_str_stopped status 0[0m
+[0;33mW (388778) BT_HCI: hci cmd send: sniff: hdl 0x80, intv(400 800)[0m
+[1;31mE (388798) BT_APPL: warning : no command pending, ignore ack[0m
+[0;32mI (388798) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x1[0m
+[0;32mI (388798) BT_AV: bt_app_av_sm_hdlr state CONNECTED, evt 0x0[0m
+[0;32mI (388808) BT_A2DP_SRC: Trang thai ket noi Bluetooth: 0 (connected=0)[0m
+[0;33mW (388808) BT_HCI: hcif mode change: hdl 0x80, mode 0, intv 0, status 0x24[0m
+[1;31mE (388818) BT_APPL: bta_dm_pm_btm_status hci_status=36[0m
+[0;32mI (388808) BT_AV: a2dp disconnected[0m
+[0;33mW (388798) BT_APPL: Media task Scheduled after Suspend[0m
+[0;32mI (388828) BT_AV: ESP_BT_GAP_MODE_CHG_EVT mode:0[0m
+[0;33mW (389028) BT_HCI: hcif disc complete: hdl 0x80, rsn 0x13 dev_find 1[0m
+[0;32mI (389028) BT_AV: ESP_BT_GAP_ACL_DISCONN_CMPL_STAT_EVT[0m
+[0;32mI (389028) BT_A2DP_SRC: Trang thai ket noi Bluetooth: 0 (connected=0)[0m
+[0;32mI (390338) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (390348) BT_AV: Discovery started.[0m
+[0;32mI (391868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (391868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (391868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (401868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (401868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (401868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (403158) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (403158) BT_AV: Discovery started.[0m
+[0;32mI (411868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (411868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (411868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (415968) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (415978) BT_AV: Discovery started.[0m
+[0;32mI (421868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (421868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (421868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (428778) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (428788) BT_AV: Discovery started.[0m
+[0;32mI (431868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (431868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (431868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (441598) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (441598) BT_AV: Discovery started.[0m
+[0;32mI (441868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (441868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (441868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (451868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (451868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (451868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (454408) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (454418) BT_AV: Discovery started.[0m
+[0;32mI (461868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (461868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (461868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (467218) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (467228) BT_AV: Discovery started.[0m
+[0;32mI (471868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (471868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (471868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (480038) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (480048) BT_AV: Discovery started.[0m
+[0;32mI (481868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (481868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (481868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (491868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (491868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (491868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (492848) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (492858) BT_AV: Discovery started.[0m
+[0;32mI (501868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (501868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (501868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (505668) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (505668) BT_AV: Discovery started.[0m
+[0;32mI (511868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (511868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (511868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (518478) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (518488) BT_AV: Discovery started.[0m
+[0;32mI (521868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (521868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (521868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (526498) SYS_CTRL: Heap truoc khi bat BT: free=43147 largest=38912 min_ever=37775 (WiFi TAT)[0m
+[0;32mI (526498) BT_A2DP_SRC: A2DP da duoc khoi dong truoc do, bo qua[0m
+[0;32mI (531288) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (531298) BT_AV: Discovery started.[0m
+[0;32mI (531868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (531868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (531868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (541868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (541868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (541868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (544108) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (544108) BT_AV: Discovery started.[0m
+[0;32mI (551868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (551868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (551868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (556918) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (556928) BT_AV: Discovery started.[0m
+[0;32mI (561868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (561868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (561868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (569728) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (569738) BT_AV: Discovery started.[0m
+[0;32mI (571868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (571868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (571868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (581868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (581868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (581868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (582548) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (582558) BT_AV: Discovery started.[0m
+[0;32mI (591868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (591868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (591868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (595358) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (595368) BT_AV: Discovery started.[0m
+[0;32mI (601868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (601868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (601868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (608178) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (608178) BT_AV: Discovery started.[0m
+[0;32mI (611868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (611868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (611868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (620988) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (620998) BT_AV: Discovery started.[0m
+[0;32mI (621868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (621868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (621868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (631868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (631868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (631868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (633798) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (633808) BT_AV: Discovery started.[0m
+[0;32mI (641868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (641868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (641868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (646618) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (646618) BT_AV: Discovery started.[0m
+[0;32mI (651868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (651868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (651868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (659428) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (659438) BT_AV: Discovery started.[0m
+[0;32mI (661868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (661868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (661868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (671868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (671868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (671868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (672238) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (672248) BT_AV: Discovery started.[0m
+[0;32mI (681868) BT_AV: bt_app_av_sm_hdlr state UNCONNECTED, evt 0xff00[0m
+[0;32mI (681868) BT_AV: Auto-reconnect disabled, not attempting to reconnect[0m
+[0;32mI (681868) BT_AV: Heartbeat: reconnect retries exhausted, fallback to scanning[0m
+[0;32mI (685058) BT_AV: Device discovery failed, continue to discover...[0m
+[0;32mI (685068) BT_AV: Discovery started.[0m

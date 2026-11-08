@@ -2,6 +2,7 @@
 #include "uart_link.h"
 #include "mic_capture.h"
 #include "ai_client.h"
+#include "esp_heap_caps.h"
 #include "wifi_mgr.h"
 #include "bt_a2dp_source.h"
 #include "freertos/FreeRTOS.h"
@@ -75,7 +76,18 @@ static void controller_task(void *arg)
 
 esp_err_t app_controller_init(void)
 {
-    s_rec_buf = malloc(REC_MAX_BYTES);
+    // Uu tien PSRAM cho buffer ghi am (64000 byte) de danh RAM trong cho
+    // Bluetooth/WiFi. mic_capture doc I2S vao mang 'frame' trong RAM trong roi
+    // memcpy sang buffer nay, nen buffer nam o PSRAM la an toan.
+    s_rec_buf = heap_caps_malloc(REC_MAX_BYTES, MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
+    if (s_rec_buf) {
+        ESP_LOGI(TAG, "Buffer ghi am %d byte nam trong PSRAM", REC_MAX_BYTES);
+    } else {
+        s_rec_buf = malloc(REC_MAX_BYTES);   // du phong neu khong co PSRAM
+        if (s_rec_buf) {
+            ESP_LOGW(TAG, "Khong co PSRAM, buffer ghi am nam trong RAM trong");
+        }
+    }
     if (!s_rec_buf) {
         ESP_LOGE(TAG, "Khong cap phat duoc buffer ghi am (%d byte)", REC_MAX_BYTES);
         return ESP_ERR_NO_MEM;

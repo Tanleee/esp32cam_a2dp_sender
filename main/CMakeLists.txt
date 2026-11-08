@@ -9,6 +9,7 @@ idf_component_register(SRCS "main.c"
                             "src/volume_button.c"
                             "src/system_ctrl.c"
                             "src/backlight_ctrl.c"
+                            "src/net_check.c"
                        INCLUDE_DIRS "inc"
                        REQUIRES esp_driver_i2s bt nvs_flash esp_ringbuf ESP32-A2DP
                                 esp_driver_uart esp_driver_gpio esp_wifi esp_netif esp_event

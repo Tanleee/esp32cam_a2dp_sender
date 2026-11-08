@@ -40,6 +40,11 @@ static char s_current_ssid[33] = "";
 static void wifi_evt(void *arg, esp_event_base_t base, int32_t id, void *data)
 {
     if (base == WIFI_EVENT && id == WIFI_EVENT_STA_DISCONNECTED) {
+        // MOI: log ly do ngat de biet vi sao WiFi rot (201=NO_AP_FOUND, 15/204=sai
+        // mat khau/handshake, 200=BEACON_TIMEOUT, 8=ASSOC_LEAVE, 2=AUTH_EXPIRE...).
+        const wifi_event_sta_disconnected_t *d = (const wifi_event_sta_disconnected_t *)data;
+        ESP_LOGW(TAG, "STA_DISCONNECTED reason=%d rssi=%d switching=%d ssid=\"%s\"",
+                 d ? (int)d->reason : -1, d ? (int)d->rssi : 0, (int)s_switching, s_current_ssid);
         xEventGroupClearBits(s_eg, WIFI_CONNECTED_BIT);
         s_connecting = false;
         if (s_switching) {
@@ -58,6 +63,7 @@ static void wifi_evt(void *arg, esp_event_base_t base, int32_t id, void *data)
         }
     } else if (base == IP_EVENT && id == IP_EVENT_STA_GOT_IP) {
         s_connecting = false;
+        ESP_LOGI(TAG, "Da co IP, ssid=\"%s\"", s_current_ssid);
         xEventGroupSetBits(s_eg, WIFI_CONNECTED_BIT);
         if (s_status_cb) s_status_cb(true, s_current_ssid);
     }

@@ -12,6 +12,7 @@
 #include "volume_button.h"
 #include "backlight_ctrl.h"
 #include "uart_link.h"
+#include "net_check.h"
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -39,8 +40,13 @@ void app_main(void)
     uart_link_callbacks_t cbs = {
         .on_rec_start       = app_controller_handle_rec_start,
         .on_rec_stop        = app_controller_handle_rec_stop,
+        .on_bt_enable       = system_ctrl_handle_bt_enable,
+        .on_bt_disable      = system_ctrl_handle_bt_disable,
+        .on_bt_scan_req     = system_ctrl_handle_bt_scan_req,
         .on_bt_connect      = system_ctrl_handle_bt_connect,
         .on_bt_disconnect   = system_ctrl_handle_bt_disconnect,
+        .on_bt_forget       = system_ctrl_handle_bt_forget,
+        .on_net_check       = net_check_handle_request,
         .on_wifi_scan_req   = system_ctrl_handle_wifi_scan_req,
         .on_wifi_connect    = system_ctrl_handle_wifi_connect,
         .on_wifi_enable     = system_ctrl_handle_wifi_enable,
@@ -71,10 +77,14 @@ void app_main(void)
     bool i2s_rx_ok = ringbuf_ok && (i2s_slave_rx_init(ringbuf) == ESP_OK);
     if (ringbuf_ok && !i2s_rx_ok) ESP_LOGE(TAG, "Khoi tao I2S RX that bai");
 
-    // Chi CAU HINH A2DP source o day - KHONG tu quet/ket noi Bluetooth. Viec
-    // quet/ket noi chi bat dau khi ESP32-C3 gui lenh BT_CONNECT qua UART.
+    // Chi CAU HINH A2DP source o day (va nap danh sach thiet bi da luu tu NVS) -
+    // Bluetooth mac dinh TAT. Chi bat + quet khi ESP32-C3 gui BT_ENABLE qua UART.
     bool bt_ok = ringbuf_ok && (bt_a2dp_source_init(ringbuf) == ESP_OK);
     if (ringbuf_ok && !bt_ok) ESP_LOGE(TAG, "Khoi tao Bluetooth A2DP that bai");
+
+    // MOI: task kiem tra Internet that su (tra loi lenh NET_CHECK tu C3).
+    bool net_chk_ok = (net_check_init() == ESP_OK);
+    if (!net_chk_ok) ESP_LOGE(TAG, "Khoi tao net_check that bai");
 
     // Khoi tao driver WiFi (STA mode) nhung CHUA bat radio - WiFi mac dinh TAT.
     // Radio chi duoc bat khi nhan WIFI_ENABLE tu ESP32-C3, va chi ket noi khi
@@ -99,14 +109,14 @@ void app_main(void)
     // --- Tat ca da xong (thanh cong hay that bai) -> bao ve cho ESP32-C3. ---
     char status[160];
     snprintf(status, sizeof(status),
-             "app_ctrl=%d,ringbuf=%d,i2s_rx=%d,bt=%d,wifi=%d,sys_ctrl=%d,vol_btn=%d,backlight=%d",
-             app_ctrl_ok, ringbuf_ok, i2s_rx_ok, bt_ok, wifi_ok, sys_ctrl_ok, vol_btn_ok, backlight_ok);
+             "app_ctrl=%d,ringbuf=%d,i2s_rx=%d,bt=%d,wifi=%d,sys_ctrl=%d,vol_btn=%d,backlight=%d,net_chk=%d",
+             app_ctrl_ok, ringbuf_ok, i2s_rx_ok, bt_ok, wifi_ok, sys_ctrl_ok, vol_btn_ok, backlight_ok, net_chk_ok);
     uart_link_send_init_status(status);
 
     // DEBUG: heap sau khi khoi tao xong (chua bat Bluetooth) - so sanh voi dong
     // "Heap truoc khi bat BT" trong system_ctrl.c.
-    ESP_LOGI(TAG, "Heap sau khoi tao: free=%u largest=%u min_ever=%u",
-             (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
-             (unsigned)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
-             (unsigned)heap_caps_get_minimum_free_size(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT));
+	ESP_LOGI(TAG, "Heap sau khoi tao: internal free=%u largest=%u | psram free=%u",
+	         (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
+	         (unsigned)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
+	         (unsigned)heap_caps_get_free_size(MALLOC_CAP_SPIRAM));
 }

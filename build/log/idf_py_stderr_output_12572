@@ -1,0 +1,54 @@
+Command: ninja all
+CMake Deprecation Warning at CMakeLists.txt:3 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/nimble/Kconfig.in:1421: BT_NIMBLE_MESH_PROVISIONER: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: C:/esp/v6.0.2/esp-idf/components/bt/controller/esp32/Kconfig.in:177: BTDM_CTRL_LEGACY_AUTH_VENDOR_EVT_EFF: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: C:/esp/v6.0.2/esp-idf/components/fatfs/Kconfig:230: FATFS_PRINT_LLI: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: C:/esp/v6.0.2/esp-idf/components/fatfs/Kconfig:235: FATFS_PRINT_FLOAT: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+Default value for BT_AVRCP_CT_COVER_ART_ENABLED in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+Default value for BT_BLE_ENABLED in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+Default value for BT_ALLOCATION_FROM_SPIRAM_FIRST in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+Default value for SPIRAM in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+Default value for SPIRAM_TRY_ALLOCATE_WIFI_LWIP in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+Default value for ESP_INT_WDT_TIMEOUT_MS in sdkconfig is 300 but it is 800 according to Kconfig.
+Using default value from sdkconfig (300).
+Default value for ESP_WIFI_STATIC_RX_BUFFER_NUM in sdkconfig is 10 but it is 16 according to Kconfig.
+Using default value from sdkconfig (10).
+Default value for ESP_WIFI_RX_BA_WIN in sdkconfig is 6 but it is 16 according to Kconfig.
+Using default value from sdkconfig (6).
+Default value for ESP_WIFI_IRAM_OPT in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+Default value for ESP_WIFI_RX_IRAM_OPT in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+Default value for LWIP_TCP_OOSEQ_MAX_PBUFS in sdkconfig is 4 but it is 0 according to Kconfig.
+Using default value from sdkconfig (4).
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_wifi/Kconfig:60: Choice ESP_WIFI_TX_BUFFER has ESP_WIFI_DYNAMIC_TX_BUFFER as default selection, but given symbol is not visible. Ignoring.
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_wifi/Kconfig:60: Choice ESP_WIFI_TX_BUFFER has no valid sdkconfig selection set to y. Will use Kconfig default selection ESP_WIFI_STATIC_TX_BUFFER.
+NOTE: Kconfig parser version: 1
+NOTE: Kconfig defaults policy: use sdkconfig
+NOTE: Status: Finished with notifications
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_wifi/Kconfig:25: ESP_WIFI_STATIC_RX_BUFFER_NUM: Kconfig default value: 16, sdkconfig default value: 10
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_wifi/Kconfig:273: ESP_WIFI_IRAM_OPT: Kconfig default value: n, sdkconfig default value: y
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_psram/Kconfig.spiram.common:109: SPIRAM_TRY_ALLOCATE_WIFI_LWIP: Kconfig default value: n, sdkconfig default value: y
+NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/bluedroid/Kconfig.in:1326: BT_ALLOCATION_FROM_SPIRAM_FIRST: Kconfig default value: n, sdkconfig default value: y
+NOTE: C:/esp/v6.0.2/esp-idf/components/lwip/Kconfig:754: LWIP_TCP_OOSEQ_MAX_PBUFS: Kconfig default value: 0, sdkconfig default value: 4
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_system/Kconfig:279: ESP_INT_WDT_TIMEOUT_MS: Kconfig default value: 800, sdkconfig default value: 300
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_wifi/Kconfig:199: ESP_WIFI_RX_BA_WIN: Kconfig default value: 16, sdkconfig default value: 6
+NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/bluedroid/Kconfig.in:273: BT_BLE_ENABLED: Kconfig default value: y, sdkconfig default value: n
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_wifi/Kconfig:291: ESP_WIFI_RX_IRAM_OPT: Kconfig default value: n, sdkconfig default value: y
+NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/bluedroid/Kconfig.in:112: BT_AVRCP_CT_COVER_ART_ENABLED: Kconfig default value: y, sdkconfig default value: n
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_psram\./esp32/Kconfig.spiram:1: SPIRAM: Kconfig default value: n, sdkconfig default value: y
+HINT: This area reports issues with default values of the config options.
+For more information, please visit https://docs.espressif.com/projects/esp-idf-kconfig/en/latest/kconfiglib/configuration-report.html#default-value-mismatch

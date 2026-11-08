@@ -47,8 +47,8 @@ D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_securit
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_hal_wdt/libesp_hal_wdt.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_hal_ana_conv/libesp_hal_ana_conv.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_hal_i2s/libesp_hal_i2s.a
-D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/libesp_psram.a
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/vfs/libvfs.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_gdbstub/libesp_gdbstub.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_adc/libesp_adc.a

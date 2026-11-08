@@ -74,6 +74,7 @@
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_timer/cmake_install.cmake",
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_ringbuf/cmake_install.cmake",
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/cmake_install.cmake",
+		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_psram/device/cmake_install.cmake",
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_driver_uart/cmake_install.cmake",
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_driver_gptimer/cmake_install.cmake",
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/app_trace/cmake_install.cmake",

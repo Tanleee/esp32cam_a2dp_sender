@@ -6,17 +6,23 @@
 // --- Nhan tu ESP32-C3 ---
 typedef void (*uart_link_rec_start_cb_t)(const char *playlist_csv);
 typedef void (*uart_link_rec_stop_cb_t)(void);
-typedef void (*uart_link_simple_cb_t)(void);   // BT_CONNECT / BT_DISCONNECT / WIFI_SCAN_REQ
+typedef void (*uart_link_simple_cb_t)(void);   // BT_ENABLE / BT_DISABLE / BT_SCAN_REQ / BT_DISCONNECT / WIFI_SCAN_REQ
 typedef void (*uart_link_wifi_connect_cb_t)(const char *ssid, const char *password);
 typedef void (*uart_link_brightness_cb_t)(uint8_t percent);   // BRIGHTNESS:<0-100>, MOI
 typedef void (*uart_link_wifi_enable_cb_t)(bool enable);       // WIFI_ENABLE / WIFI_DISABLE, MOI
 typedef void (*uart_link_ssid_cb_t)(const char *ssid);         // WIFI_PW_QUERY:<ssid> / WIFI_FORGET:<ssid>, MOI
+typedef void (*uart_link_bt_addr_cb_t)(const char *addr);      // BT_CONNECT:<addr> / BT_FORGET:<addr>, MOI (addr = 12 ky tu HEX)
 
 typedef struct {
     uart_link_rec_start_cb_t    on_rec_start;      // REC_START:<csv>
     uart_link_rec_stop_cb_t     on_rec_stop;        // REC_STOP
-    uart_link_simple_cb_t       on_bt_connect;       // BT_CONNECT
-    uart_link_simple_cb_t       on_bt_disconnect;    // BT_DISCONNECT
+    uart_link_simple_cb_t       on_bt_enable;        // BT_ENABLE (hoac "BT_CONNECT" tran, ban cu) - bat BT + quet
+    uart_link_simple_cb_t       on_bt_disable;       // BT_DISABLE - tat han BT
+    uart_link_simple_cb_t       on_bt_scan_req;      // BT_SCAN_REQ - yeu cau day lai danh sach
+    uart_link_bt_addr_cb_t      on_bt_connect;       // BT_CONNECT:<addr> - noi toi thiet bi da chon
+    uart_link_simple_cb_t       on_bt_disconnect;    // BT_DISCONNECT - chi ngat thiet bi hien tai, BT van bat
+    uart_link_bt_addr_cb_t      on_bt_forget;        // BT_FORGET:<addr> - quen thiet bi da luu
+    uart_link_simple_cb_t       on_net_check;        // NET_CHECK - MOI
     uart_link_simple_cb_t       on_wifi_scan_req;    // WIFI_SCAN_REQ
     uart_link_wifi_connect_cb_t on_wifi_connect;     // WIFI_CONNECT:<ssid>:<password>
     uart_link_brightness_cb_t   on_brightness_set;   // BRIGHTNESS:<0-100> - MOI
@@ -35,6 +41,11 @@ void uart_link_send_ack(void);
 void uart_link_send_result(const char *song_name);
 void uart_link_send_error(const char *code);
 
+// MOI: ket qua kiem tra Internet (tra loi cho NET_CHECK tu C3).
+//   NET_OK  /  NET_ERR:<WIFI_OFF|NO_WIFI|NO_INTERNET|NO_DNS|NO_SERVER|BUSY>
+void uart_link_send_net_ok(void);
+void uart_link_send_net_err(const char *code);
+
 // --- Gui ve ESP32-C3 (dieu khien am luong, da co tu truoc) ---
 void uart_link_send_vol_up(void);
 void uart_link_send_vol_down(void);
@@ -42,7 +53,7 @@ void uart_link_send_vol_down(void);
 // --- Gui ve ESP32-C3 (tinh nang he thong, da co tu truoc) ---
 void uart_link_send_time(const char *hhmm, const char *date_str);
 void uart_link_send_wifi_status(bool connected, const char *ssid);
-void uart_link_send_bt_status(bool connected, const char *device_name);
+void uart_link_send_bt_status(bool connected, const char *device_name);   // BT_STATUS:<0|1>:<ten>
 void uart_link_send_wifi_list(const char *networks_csv);
 void uart_link_send_wifi_err(const char *code);
 
@@ -73,3 +84,17 @@ void uart_link_send_wifi_pw_none(const char *ssid);
 // Bao trang thai radio WiFi that su -> "WIFI_POWER:<0|1>" (de C3 keo cong tac ve
 // dung vi tri; cung la phan hoi cho WIFI_ENABLE / WIFI_DISABLE).
 void uart_link_send_wifi_power(bool on);
+
+// --- Gui ve ESP32-C3 (MOI: Bluetooth quet/luu/quen giong WiFi) ---
+
+// "BT_POWER:<0|1>" - Bluetooth that su dang BAT/TAT (phan hoi cho BT_ENABLE /
+// BT_DISABLE, cung duoc gui khi BT tu tat do het gio hoac loi).
+void uart_link_send_bt_power(bool on);
+
+// "BT_LIST:<addr>|<flags>|<ten>,<addr>|<flags>|<ten>,..." (rong neu chua co thiet bi)
+//   addr  = 12 ky tu HEX viet hoa (dung lam dinh danh cho BT_CONNECT / BT_FORGET)
+//   flags = bitmask: 1 = da luu, 2 = dang trong vung phu song, 4 = dang ket noi
+void uart_link_send_bt_list(const char *devices_csv);
+
+// "BT_ERR:<CONNECT_FAIL|INIT_FAIL|BAD_ADDR|NOT_ENABLED>"
+void uart_link_send_bt_err(const char *code);

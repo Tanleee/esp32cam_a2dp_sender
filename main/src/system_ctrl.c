@@ -46,11 +46,14 @@ static QueueHandle_t s_wifi_cmd_queue;
 
 // ================== CAU HINH LAI uart_link ==================
 
-void system_ctrl_handle_bt_connect(void)
+// ================== BLUETOOTH (bat/tat + quet + chon thiet bi + quen) ==================
+
+void system_ctrl_handle_bt_enable(void)
 {
     if (s_radio_op == RADIO_OP_WIFI_CONNECTING) {
-        ESP_LOGW(TAG, "Tu choi BT_CONNECT: WiFi dang xac thuc");
+        ESP_LOGW(TAG, "Tu choi BT_ENABLE: WiFi dang xac thuc");
         uart_link_send_busy("WIFI_CONNECTING");
+        uart_link_send_bt_power(false);   // de C3 keo cong tac Bluetooth ve TAT
         return;
     }
     // DEBUG: Bluedroid can nhieu RAM noi + 1 khoi lien tuc lon luc khoi dong. Neu
@@ -62,13 +65,62 @@ void system_ctrl_handle_bt_connect(void)
              (unsigned)heap_caps_get_minimum_free_size(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
              wifi_mgr_is_enabled() ? "BAT" : "TAT");
 
-    s_radio_op = RADIO_OP_BT_CONNECTING;   // duoc giai phong trong on_bt_status() ben duoi
-    bt_a2dp_source_connect();
+    // Bat dong bo: chi dat lenh vao hang doi cua bt_worker. Ket qua that su
+    // (BT_POWER:1 hoac BT_ERR:INIT_FAIL + BT_POWER:0) se bao ve qua callback.
+    if (bt_a2dp_source_enable() != ESP_OK) {
+        uart_link_send_bt_err("INIT_FAIL");
+        uart_link_send_bt_power(false);
+    }
+}
+
+void system_ctrl_handle_bt_disable(void)
+{
+    if (s_radio_op == RADIO_OP_BT_CONNECTING) s_radio_op = RADIO_OP_NONE;
+    bt_a2dp_source_disable();
+}
+
+void system_ctrl_handle_bt_scan_req(void)
+{
+    // BT dang tat (C3 va classic lech trang thai) -> bao lai trang thai that.
+    if (!bt_a2dp_source_is_enabled()) {
+        uart_link_send_bt_power(false);
+        return;
+    }
+    bt_a2dp_source_request_list();
+}
+
+void system_ctrl_handle_bt_connect(const char *addr)
+{
+    if (s_radio_op == RADIO_OP_WIFI_CONNECTING) {
+        ESP_LOGW(TAG, "Tu choi BT_CONNECT: WiFi dang xac thuc");
+        uart_link_send_busy("WIFI_CONNECTING");
+        uart_link_send_bt_err("CONNECT_FAIL");
+        return;
+    }
+    esp_err_t ret = bt_a2dp_source_connect_to(addr);
+    if (ret == ESP_ERR_INVALID_ARG) {
+        ESP_LOGW(TAG, "BT_CONNECT dia chi sai dinh dang: %s", addr);
+        uart_link_send_bt_err("BAD_ADDR");
+    } else if (ret != ESP_OK) {
+        uart_link_send_bt_err("NOT_ENABLED");
+        uart_link_send_bt_power(false);
+    } else {
+        s_radio_op = RADIO_OP_BT_CONNECTING;   // duoc giai phong trong on_bt_status() / on_bt_error()
+    }
 }
 
 void system_ctrl_handle_bt_disconnect(void)
 {
+    if (s_radio_op == RADIO_OP_BT_CONNECTING) s_radio_op = RADIO_OP_NONE;   // huy cho ket noi dang do
     bt_a2dp_source_disconnect();
+}
+
+void system_ctrl_handle_bt_forget(const char *addr)
+{
+    if (s_radio_op == RADIO_OP_BT_CONNECTING) s_radio_op = RADIO_OP_NONE;   // co the dang huy chinh thiet bi dang cho noi
+    esp_err_t ret = bt_a2dp_source_forget(addr);
+    if (ret == ESP_ERR_INVALID_ARG) uart_link_send_bt_err("BAD_ADDR");
+    else if (ret != ESP_OK) ESP_LOGW(TAG, "BT_FORGET that bai: %s", esp_err_to_name(ret));
 }
 
 void system_ctrl_handle_wifi_scan_req(void)
@@ -190,6 +242,44 @@ static void on_bt_status(bool connected, const char *device_name)
     uart_link_send_bt_status(connected, device_name);
 }
 
+static void on_bt_power(bool on)
+{
+    if (!on && s_radio_op == RADIO_OP_BT_CONNECTING) s_radio_op = RADIO_OP_NONE;
+    uart_link_send_bt_power(on);
+}
+
+static void on_bt_error(const char *code)
+{
+    if (s_radio_op == RADIO_OP_BT_CONNECTING) s_radio_op = RADIO_OP_NONE;
+    uart_link_send_bt_err(code);
+}
+
+// Danh sach -> "addr|flags|ten,addr|flags|ten,..." (flags: 1=da luu, 2=trong vung, 4=dang noi).
+// Duoc goi tu bt_worker (khong phai task Bluedroid) nen malloc + ghi UART an toan.
+static void on_bt_list(const bt_device_info_t *devs, int count)
+{
+    // moi dong toi da: 12 (addr) + 1 ('|') + 1 (flags) + 1 ('|') + 32 (ten) + 1 (',') = 48
+    size_t csv_cap = (size_t)count * 52 + 8;
+    char *csv = malloc(csv_cap);
+    if (!csv) {
+        ESP_LOGE(TAG, "Khong du RAM de tao BT_LIST");
+        return;
+    }
+
+    size_t off = 0;
+    csv[0] = '\0';
+    for (int i = 0; i < count; i++) {
+        int flags = (devs[i].saved ? 1 : 0) | (devs[i].in_range ? 2 : 0) | (devs[i].connected ? 4 : 0);
+        int w = snprintf(csv + off, csv_cap - off, "%s%s|%d|%s",
+                         (off > 0) ? "," : "", devs[i].addr, flags, devs[i].name);
+        if (w < 0 || (size_t)w >= csv_cap - off) break;
+        off += (size_t)w;
+    }
+
+    uart_link_send_bt_list(csv);
+    free(csv);
+}
+
 // ================== WORKER XU LY KET NOI WIFI (co the bi ngat giua chung) ==================
 // Day la phan FreeRTOS "dung" cho yeu cau 3: thay vi cho CHAN 15s ngay trong
 // uart_rx_task (se khoa UART, khong doc duoc lenh moi trong luc cho - loi
@@ -296,7 +386,13 @@ static void time_sync_task(void *arg)
 esp_err_t system_ctrl_init(void)
 {
     wifi_mgr_set_status_callback(on_wifi_status);
-    bt_a2dp_source_set_status_callback(on_bt_status);
+    bt_a2dp_callbacks_t bt_cbs = {
+        .on_status = on_bt_status,
+        .on_power  = on_bt_power,
+        .on_list   = on_bt_list,
+        .on_error  = on_bt_error,
+    };
+    bt_a2dp_source_set_callbacks(&bt_cbs);
 
     s_wifi_cmd_queue = xQueueCreate(1, sizeof(wifi_connect_req_t));
     if (!s_wifi_cmd_queue) return ESP_ERR_NO_MEM;

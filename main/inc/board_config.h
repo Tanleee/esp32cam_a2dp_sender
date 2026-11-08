@@ -17,8 +17,8 @@
 
 // --- UART noi voi ESP32-C3 ---
 #define UART_PORT         UART_NUM_2
-#define UART_TX_PIN       17
-#define UART_RX_PIN       16
+#define UART_TX_PIN 	  22
+#define UART_RX_PIN       23
 #define UART_BAUD         115200
 
 // --- 2 nut nhan tang/giam am luong (chuyen tu ESP32-C3 sang board nay) ---
@@ -27,7 +27,7 @@
 
 // --- MOI: dieu khien tat/mo loa local (MAX98357A noi voi I2S cua ESP32-C3)
 // qua chan SD (Shutdown) cua MAX98357A. Muc dich: khi ESP32 classic ket noi
-// Bluetooth (A2DP) thanh cong voi loa ngoai "LE208", keo chan nay XUONG THAP
+// Bluetooth (A2DP) thanh cong voi 1 loa/tai nghe ngoai, keo chan nay XUONG THAP
 // de tat loa local, tranh phat chong 2 noi cung luc; khi Bluetooth ngat ket
 // noi thi keo len lai de loa local tiep tuc phat.
 #define PIN_SPEAKER_MUTE   4

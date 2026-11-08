@@ -14,12 +14,18 @@
 // doi chung ket noi xong, system_ctrl tu cho ngam ben trong).
 esp_err_t system_ctrl_init(void);
 
-// 4 ham nay la noi THUC SU xu ly cac lenh moi tu ESP32-C3 qua UART. Chung
+// Cac ham nay la noi THUC SU xu ly cac lenh moi tu ESP32-C3 qua UART. Chung
 // KHONG duoc goi truc tiep tu uart_link.c - app_controller.c la noi DUY NHAT
 // goi uart_link_init(), nen no se tro 4 callback nay vao struct
 // uart_link_callbacks_t cua minh.
-void system_ctrl_handle_bt_connect(void);
-void system_ctrl_handle_bt_disconnect(void);
+
+// Bluetooth (quet/luu/quen giong WiFi) - xem uart_link.h de biet dinh dang lenh.
+void system_ctrl_handle_bt_enable(void);                    // BT_ENABLE (hoac BT_CONNECT tran)
+void system_ctrl_handle_bt_disable(void);                   // BT_DISABLE
+void system_ctrl_handle_bt_scan_req(void);                  // BT_SCAN_REQ
+void system_ctrl_handle_bt_connect(const char *addr);       // BT_CONNECT:<addr>
+void system_ctrl_handle_bt_disconnect(void);                // BT_DISCONNECT
+void system_ctrl_handle_bt_forget(const char *addr);        // BT_FORGET:<addr>
 void system_ctrl_handle_wifi_scan_req(void);
 void system_ctrl_handle_wifi_connect(const char *ssid, const char *password);
 
