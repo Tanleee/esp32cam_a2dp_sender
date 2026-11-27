@@ -169,6 +169,7 @@
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/arduino-audio-tools/cmake_install.cmake",
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/ESP32-A2DP/cmake_install.cmake",
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/espressif__cjson/cmake_install.cmake",
+		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/espressif__mdns/cmake_install.cmake",
 		"D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/main/cmake_install.cmake"
 	],
 	"Parallel" : false

@@ -7,12 +7,34 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "freertos/semphr.h"
+#include "remote_link.h"
+#include "backlight_ctrl.h"
 
 static const char *TAG = "UART_LINK";
 
 #define LINE_BUF_SZ     2560
 
 static uart_link_callbacks_t s_cbs;
+static SemaphoreHandle_t s_tx_mutex = NULL;
+
+// Moi lan ghi UART deu qua mutex: HTTP server (truyen file), uart_rx, wifi/bt... cung gui
+// nen neu khong khoa cac dong/khung se tron vao nhau.
+void uart_link_write(const void *data, size_t len)
+{
+    if (s_tx_mutex) xSemaphoreTake(s_tx_mutex, portMAX_DELAY);
+    uart_write_bytes(UART_PORT, data, len);
+    if (s_tx_mutex) xSemaphoreGive(s_tx_mutex);
+}
+
+void uart_link_send_line(const char *line)
+{
+    size_t n = strlen(line);
+    if (s_tx_mutex) xSemaphoreTake(s_tx_mutex, portMAX_DELAY);
+    uart_write_bytes(UART_PORT, line, n);
+    uart_write_bytes(UART_PORT, "\n", 1);
+    if (s_tx_mutex) xSemaphoreGive(s_tx_mutex);
+}
 
 // MOI: luu lai chuoi INIT_DONE de gui lai khi ESP32-C3 hoi (HELLO). ESP32 classic
 // khoi tao xong nhanh hon C3 nen INIT_DONE gui lan dau co the roi vao luc C3
@@ -24,7 +46,10 @@ static void write_init_done(void)
 {
     char msg[sizeof(s_init_status) + 16];
     int n = snprintf(msg, sizeof(msg), "INIT_DONE:%s\n", s_init_status);
-    if (n > 0) uart_write_bytes(UART_PORT, msg, n);
+    if (n > 0) uart_link_write(msg, n);
+    // MOI: gui kem trang thai man hinh hien tai de C3 luon dong bo (vi du WROVER vua reset
+    // trong luc C3 dang tat man hinh -> den nen da ve 100% nen C3 phai mo lai cam ung).
+    uart_link_send_screen_state(!backlight_ctrl_is_screen_off());
 }
 
 // C3 gui "HELLO" (lap lai moi ~500ms trong luc cho INIT_DONE). Neu da init xong
@@ -32,6 +57,11 @@ static void write_init_done(void)
 // app_main hoan tat.
 static void handle_hello(void)
 {
+    // MOI: HELLO chi do C3 gui luc VUA KHOI DONG -> giao dien C3 luc nay luon dang bat. Neu
+    // truoc do man hinh dang bi tat bang nut (roi C3 reset) thi bat lai den nen, tranh
+    // truong hop den nen tat nhung C3 dang hien man hinh Boot/Home.
+    backlight_ctrl_set_screen_off(false);
+
     if (s_init_done) {
         ESP_LOGI(TAG, "Nhan HELLO tu C3 -> gui lai INIT_DONE");
         write_init_done();
@@ -113,6 +143,8 @@ static void uart_rx_task(void *arg)
                 handle_brightness_line((char *)line + 11);
             } else if (strcmp((char *)line, "HELLO") == 0) {
                 handle_hello();
+            } else if (remote_link_handle_line((char *)line)) {
+                // dong tra loi/trang thai tu C3 cho web (PL_STAT, FILE_*, RC_*, LIST_*)
             } else if (line[0] != '\0') {
                 ESP_LOGW(TAG, "Dong UART khong nhan dien: %s", line);
             }
@@ -125,6 +157,7 @@ static void uart_rx_task(void *arg)
 esp_err_t uart_link_init(const uart_link_callbacks_t *callbacks)
 {
     if (callbacks) s_cbs = *callbacks;
+    if (!s_tx_mutex) s_tx_mutex = xSemaphoreCreateMutex();
 
     uart_config_t cfg = {
         .baud_rate = UART_BAUD,
@@ -141,6 +174,11 @@ esp_err_t uart_link_init(const uart_link_callbacks_t *callbacks)
     if (ret != ESP_OK) return ret;
     ret = uart_set_pin(UART_PORT, UART_TX_PIN, UART_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
     if (ret != ESP_OK) return ret;
+	
+	// FIFO RX chi 128 byte, o 2 Mbaud day sau ~0.6 ms. Ha nguong ngat de ISR chay som,
+	// chua nhieu cho trong FIFO cho luc ISR bi tre (WiFi/Bluetooth/flash).
+	ret = uart_set_rx_full_threshold(UART_PORT, 32);
+	if (ret != ESP_OK) return ret;
 
     BaseType_t ok = xTaskCreate(uart_rx_task, "uart_rx", 4096, NULL, 6, NULL);
     return (ok == pdPASS) ? ESP_OK : ESP_FAIL;
@@ -149,67 +187,74 @@ esp_err_t uart_link_init(const uart_link_callbacks_t *callbacks)
 void uart_link_send_ack(void)
 {
     const char *msg = "REC_ACK\n";
-    uart_write_bytes(UART_PORT, msg, strlen(msg));
+    uart_link_write(msg, strlen(msg));
 }
 
 void uart_link_send_result(const char *song_name)
 {
     char buf[256];
     int n = snprintf(buf, sizeof(buf), "RESULT:%s\n", song_name);
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_error(const char *code)
 {
     char buf[128];
     int n = snprintf(buf, sizeof(buf), "REC_ERR:%s\n", code);
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_net_ok(void)
 {
     const char *msg = "NET_OK\n";
-    uart_write_bytes(UART_PORT, msg, strlen(msg));
+    uart_link_write(msg, strlen(msg));
 }
 
 void uart_link_send_net_err(const char *code)
 {
     char buf[48];
     int n = snprintf(buf, sizeof(buf), "NET_ERR:%s\n", code);
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_vol_up(void)
 {
     const char *msg = "VOL_UP\n";
-    uart_write_bytes(UART_PORT, msg, strlen(msg));
+    uart_link_write(msg, strlen(msg));
 }
 
 void uart_link_send_vol_down(void)
 {
     const char *msg = "VOL_DOWN\n";
-    uart_write_bytes(UART_PORT, msg, strlen(msg));
+    uart_link_write(msg, strlen(msg));
+}
+
+void uart_link_send_screen_state(bool on)
+{
+    const char *msg = on ? "SCREEN:1\n" : "SCREEN:0\n";
+    uart_link_write(msg, strlen(msg));
 }
 
 void uart_link_send_time(const char *hhmm, const char *date_str)
 {
     char buf[64];
     int n = snprintf(buf, sizeof(buf), "TIME:%s|%s\n", hhmm, date_str);
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_wifi_status(bool connected, const char *ssid)
 {
     char buf[48];
     int n = snprintf(buf, sizeof(buf), "WIFI_STATUS:%d:%s\n", connected ? 1 : 0, ssid ? ssid : "");
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_bt_status(bool connected, const char *device_name)
 {
     char buf[48];
+    remote_link_note_bt(connected, device_name);
     int n = snprintf(buf, sizeof(buf), "BT_STATUS:%d:%s\n", connected ? 1 : 0, device_name ? device_name : "");
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_wifi_list(const char *networks_csv)
@@ -218,7 +263,7 @@ void uart_link_send_wifi_list(const char *networks_csv)
     char *msg = malloc(msg_len);
     if (!msg) { ESP_LOGE(TAG, "Khong du RAM de gui WIFI_LIST"); return; }
     int n = snprintf(msg, msg_len, "WIFI_LIST:%s\n", networks_csv);
-    uart_write_bytes(UART_PORT, msg, n);
+    uart_link_write(msg, n);
     free(msg);
 }
 
@@ -226,7 +271,7 @@ void uart_link_send_wifi_err(const char *code)
 {
     char buf[48];
     int n = snprintf(buf, sizeof(buf), "WIFI_ERR:%s\n", code);
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_init_status(const char *status_csv)
@@ -241,14 +286,14 @@ void uart_link_send_wifi_switch(bool switched_immediately)
 {
     char buf[32];
     int n = snprintf(buf, sizeof(buf), "WIFI_SWITCH:%d\n", switched_immediately ? 1 : 0);
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_busy(const char *reason)
 {
     char buf[48];
     int n = snprintf(buf, sizeof(buf), "BUSY:%s\n", reason);
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_wifi_pw(const char *ssid, const char *password)
@@ -260,7 +305,7 @@ void uart_link_send_wifi_pw(const char *ssid, const char *password)
         ESP_LOGW(TAG, "WIFI_PW qua dai, bo qua");
         return;
     }
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_wifi_pw_none(const char *ssid)
@@ -268,19 +313,19 @@ void uart_link_send_wifi_pw_none(const char *ssid)
     char buf[16 + 32 + 4];
     int n = snprintf(buf, sizeof(buf), "WIFI_PW_NONE:%s\n", ssid);
     if (n < 0 || n >= (int)sizeof(buf)) n = sizeof(buf) - 1;
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_wifi_power(bool on)
 {
     const char *msg = on ? "WIFI_POWER:1\n" : "WIFI_POWER:0\n";
-    uart_write_bytes(UART_PORT, msg, strlen(msg));
+    uart_link_write(msg, strlen(msg));
 }
 void uart_link_send_bt_power(bool on)
 {
     char buf[24];
     int n = snprintf(buf, sizeof(buf), "BT_POWER:%d\n", on ? 1 : 0);
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }
 
 void uart_link_send_bt_list(const char *devices_csv)
@@ -289,7 +334,7 @@ void uart_link_send_bt_list(const char *devices_csv)
     char *msg = malloc(msg_len);
     if (!msg) { ESP_LOGE(TAG, "Khong du RAM de gui BT_LIST"); return; }
     int n = snprintf(msg, msg_len, "BT_LIST:%s\n", devices_csv);
-    uart_write_bytes(UART_PORT, msg, n);
+    uart_link_write(msg, n);
     free(msg);
 }
 
@@ -297,5 +342,5 @@ void uart_link_send_bt_err(const char *code)
 {
     char buf[48];
     int n = snprintf(buf, sizeof(buf), "BT_ERR:%s\n", code);
-    uart_write_bytes(UART_PORT, buf, n);
+    uart_link_write(buf, n);
 }

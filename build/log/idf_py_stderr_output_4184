@@ -33,14 +33,17 @@ Using default value from sdkconfig (4).
 NOTE: Kconfig parser version: 1
 NOTE: Kconfig defaults policy: use sdkconfig
 NOTE: Status: Finished with notifications
-NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/bluedroid/Kconfig.in:112: BT_AVRCP_CT_COVER_ART_ENABLED: Kconfig default value: y, sdkconfig default value: n
-NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/bluedroid/Kconfig.in:273: BT_BLE_ENABLED: Kconfig default value: y, sdkconfig default value: n
-NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/bluedroid/Kconfig.in:1326: BT_ALLOCATION_FROM_SPIRAM_FIRST: Kconfig default value: n, sdkconfig default value: y
-NOTE: C:/esp/v6.0.2/esp-idf/components/esp_psram\./esp32/Kconfig.spiram:1: SPIRAM: Kconfig default value: n, sdkconfig default value: y
-NOTE: C:/esp/v6.0.2/esp-idf/components/esp_wifi/Kconfig:25: ESP_WIFI_STATIC_RX_BUFFER_NUM: Kconfig default value: 16, sdkconfig default value: 10
-NOTE: C:/esp/v6.0.2/esp-idf/components/lwip/Kconfig:754: LWIP_TCP_OOSEQ_MAX_PBUFS: Kconfig default value: 0, sdkconfig default value: 4
 NOTE: C:/esp/v6.0.2/esp-idf/components/esp_psram/Kconfig.spiram.common:109: SPIRAM_TRY_ALLOCATE_WIFI_LWIP: Kconfig default value: n, sdkconfig default value: y
 NOTE: C:/esp/v6.0.2/esp-idf/components/esp_system/Kconfig:279: ESP_INT_WDT_TIMEOUT_MS: Kconfig default value: 800, sdkconfig default value: 300
+NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/bluedroid/Kconfig.in:273: BT_BLE_ENABLED: Kconfig default value: y, sdkconfig default value: n
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_psram\./esp32/Kconfig.spiram:1: SPIRAM: Kconfig default value: n, sdkconfig default value: y
+NOTE: C:/esp/v6.0.2/esp-idf/components/lwip/Kconfig:754: LWIP_TCP_OOSEQ_MAX_PBUFS: Kconfig default value: 0, sdkconfig default value: 4
+NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/bluedroid/Kconfig.in:112: BT_AVRCP_CT_COVER_ART_ENABLED: Kconfig default value: y, sdkconfig default value: n
+NOTE: C:/esp/v6.0.2/esp-idf/components/esp_wifi/Kconfig:25: ESP_WIFI_STATIC_RX_BUFFER_NUM: Kconfig default value: 16, sdkconfig default value: 10
 NOTE: C:/esp/v6.0.2/esp-idf/components/esp_wifi/Kconfig:199: ESP_WIFI_RX_BA_WIN: Kconfig default value: 16, sdkconfig default value: 6
+NOTE: C:/esp/v6.0.2/esp-idf/components/bt/host/bluedroid/Kconfig.in:1326: BT_ALLOCATION_FROM_SPIRAM_FIRST: Kconfig default value: n, sdkconfig default value: y
+NOTE: C:/esp/v6.0.2/esp-idf/components/mbedtls/Kconfig:134: MBEDTLS_MEM_ALLOC_MODE: Kconfig default selection: MBEDTLS_INTERNAL_MEM_ALLOC, sdkconfig default selection: MBEDTLS_EXTERNAL_MEM_ALLOC
 HINT: This area reports issues with default values of the config options.
 For more information, please visit https://docs.espressif.com/projects/esp-idf-kconfig/en/latest/kconfiglib/configuration-report.html#default-value-mismatch
+NOTE: C:/esp/v6.0.2/esp-idf/components/mbedtls/Kconfig:134: MBEDTLS_MEM_ALLOC_MODE assigned multiple times: MBEDTLS_INTERNAL_MEM_ALLOC (default), MBEDTLS_EXTERNAL_MEM_ALLOC (default) -> using MBEDTLS_EXTERNAL_MEM_ALLOC
+HINT: Under normal circumstances, there should be only one (or none) assignment per config option. Multiple assignments mean somebody manually altered the sdkconfig file. If you edited the sdkconfig file intentionally, this area can be ignored.

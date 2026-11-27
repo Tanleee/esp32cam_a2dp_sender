@@ -13,6 +13,8 @@
 #include "backlight_ctrl.h"
 #include "uart_link.h"
 #include "net_check.h"
+#include "remote_link.h"
+#include "web_server.h"
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -54,6 +56,8 @@ void app_main(void)
         .on_wifi_forget     = system_ctrl_handle_wifi_forget,
         .on_brightness_set  = backlight_ctrl_handle_set,
     };
+    // MOI: cau noi web <-> C3 phai san sang TRUOC khi UART bat dau nhan dong tu C3.
+    if (remote_link_init() != ESP_OK) ESP_LOGE(TAG, "Khoi tao remote_link that bai");
     bool uart_ok = (uart_link_init(&cbs) == ESP_OK);
     if (!uart_ok) {
         // Khong co UART thi khong co cach nao bao trang thai ve C3 - dung lai.
@@ -102,6 +106,11 @@ void app_main(void)
     bool vol_btn_ok = (volume_button_init() == ESP_OK);
     if (!vol_btn_ok) ESP_LOGE(TAG, "Khoi tao volume_button that bai");
 
+    // MOI: web server (giao dien dieu khien + API) va mDNS "musicplayer.local". Chi lang nghe
+    // khi WiFi co IP; WiFi mac dinh TAT nen web chi vao duoc sau khi bat WiFi tren man hinh C3.
+    bool web_ok = (web_server_start() == ESP_OK);
+    if (!web_ok) ESP_LOGE(TAG, "Khoi tao web server that bai");
+
     // MOI: PWM do sang man hinh (GPIO14), dieu khien qua lenh BRIGHTNESS tu C3.
     bool backlight_ok = (backlight_ctrl_init() == ESP_OK);
     if (!backlight_ok) ESP_LOGE(TAG, "Khoi tao backlight_ctrl that bai");
@@ -109,8 +118,8 @@ void app_main(void)
     // --- Tat ca da xong (thanh cong hay that bai) -> bao ve cho ESP32-C3. ---
     char status[160];
     snprintf(status, sizeof(status),
-             "app_ctrl=%d,ringbuf=%d,i2s_rx=%d,bt=%d,wifi=%d,sys_ctrl=%d,vol_btn=%d,backlight=%d,net_chk=%d",
-             app_ctrl_ok, ringbuf_ok, i2s_rx_ok, bt_ok, wifi_ok, sys_ctrl_ok, vol_btn_ok, backlight_ok, net_chk_ok);
+             "app_ctrl=%d,ringbuf=%d,i2s_rx=%d,bt=%d,wifi=%d,sys_ctrl=%d,vol_btn=%d,backlight=%d,net_chk=%d,web=%d",
+             app_ctrl_ok, ringbuf_ok, i2s_rx_ok, bt_ok, wifi_ok, sys_ctrl_ok, vol_btn_ok, backlight_ok, net_chk_ok, web_ok);
     uart_link_send_init_status(status);
 
     // DEBUG: heap sau khi khoi tao xong (chua bat Bluetooth) - so sanh voi dong

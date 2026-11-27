@@ -191,6 +191,8 @@ D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/console/lib
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_local_ctrl/libesp_local_ctrl.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/protocomm/libprotocomm.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_https_server/libesp_https_server.a
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/espressif__mdns/libespressif__mdns.a
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_eth/libesp_eth.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/wear_levelling/libwear_levelling.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/fatfs/libfatfs.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/wear_levelling/libwear_levelling.a
@@ -204,6 +206,7 @@ D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_driver_
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/esp_driver_dac/libesp_driver_dac.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/ESP32-A2DP/libESP32-A2DP.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/espressif__cjson/libespressif__cjson.a
+D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/espressif__mdns/libespressif__mdns.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/main/libmain.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/ESP32-A2DP/libESP32-A2DP.a
 D:/Espressif/Workspace/Music_player_bluetooth_esp32cam/build/esp-idf/espressif__cjson/libespressif__cjson.a

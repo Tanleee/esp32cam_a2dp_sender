@@ -2,6 +2,7 @@
 #include "esp_err.h"
 #include <stdbool.h>
 #include <stdint.h>
+#include <stddef.h>
 
 // --- Nhan tu ESP32-C3 ---
 typedef void (*uart_link_rec_start_cb_t)(const char *playlist_csv);
@@ -49,6 +50,11 @@ void uart_link_send_net_err(const char *code);
 // --- Gui ve ESP32-C3 (dieu khien am luong, da co tu truoc) ---
 void uart_link_send_vol_up(void);
 void uart_link_send_vol_down(void);
+
+// --- Gui ve ESP32-C3 (MOI: nut tat/bat man hinh GPIO35) ---
+// "SCREEN:<0|1>": 0 = man hinh vua TAT (C3 khoa cam ung + hien lockscreen), 1 = vua BAT
+// (C3 mo lai cam ung). Cung duoc gui kem INIT_DONE de C3 luon dong bo lai trang thai.
+void uart_link_send_screen_state(bool on);
 
 // --- Gui ve ESP32-C3 (tinh nang he thong, da co tu truoc) ---
 void uart_link_send_time(const char *hhmm, const char *date_str);
@@ -98,3 +104,8 @@ void uart_link_send_bt_list(const char *devices_csv);
 
 // "BT_ERR:<CONNECT_FAIL|INIT_FAIL|BAD_ADDR|NOT_ENABLED>"
 void uart_link_send_bt_err(const char *code);
+
+
+// --- MOI: ghi UART an toan da luong (dung cho truyen file va lenh RC) ---
+void uart_link_write(const void *data, size_t len);   // ghi nguyen khoi (khong tu them '\n')
+void uart_link_send_line(const char *line);            // ghi 1 dong + '\n'

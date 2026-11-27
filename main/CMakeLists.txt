@@ -10,7 +10,10 @@ idf_component_register(SRCS "main.c"
                             "src/system_ctrl.c"
                             "src/backlight_ctrl.c"
                             "src/net_check.c"
+                            "src/remote_link.c"
+                            "src/web_server.c"
                        INCLUDE_DIRS "inc"
+                       EMBED_FILES "web/index.html.gz"
                        REQUIRES esp_driver_i2s bt nvs_flash esp_ringbuf ESP32-A2DP
                                 esp_driver_uart esp_driver_gpio esp_wifi esp_netif esp_event
-                                esp_http_client esp-tls mbedtls esp_coex lwip esp_driver_ledc)
+                                esp_http_client esp-tls mbedtls esp_coex lwip esp_driver_ledc esp_http_server)

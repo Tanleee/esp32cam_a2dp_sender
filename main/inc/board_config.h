@@ -19,19 +19,17 @@
 #define UART_PORT         UART_NUM_2
 #define UART_TX_PIN 	  22
 #define UART_RX_PIN       23
-#define UART_BAUD         115200
+#define UART_BAUD         2000000   // PHAI giong UART_BAUD ben C3 (uart_link.c). Neu loi duong truyen, ha xuong 460800 o CA 2 BEN.
 
 // --- 2 nut nhan tang/giam am luong (chuyen tu ESP32-C3 sang board nay) ---
 #define PIN_BTN_VOL_UP     18
 #define PIN_BTN_VOL_DOWN   19
 
-// --- MOI: dieu khien tat/mo loa local (MAX98357A noi voi I2S cua ESP32-C3)
-// qua chan SD (Shutdown) cua MAX98357A. Muc dich: khi ESP32 classic ket noi
-// Bluetooth (A2DP) thanh cong voi 1 loa/tai nghe ngoai, keo chan nay XUONG THAP
-// de tat loa local, tranh phat chong 2 noi cung luc; khi Bluetooth ngat ket
-// noi thi keo len lai de loa local tiep tuc phat.
 #define PIN_SPEAKER_MUTE   4
 
-// --- MOI: PWM dieu khien do sang man hinh (C3 phu trach man hinh, nhung
-// chan PWM vat ly dat tren board nay - dung chung dat voi C3 qua UART/GND) ---
 #define PIN_BACKLIGHT_PWM   14
+
+// --- Nut nhan tat/bat man hinh (MOI) ---
+// GPIO35 chi la chan VAO (khong co pull-up/pull-down noi) -> bat buoc dung dien tro keo
+// xuong NGOAI. Nhan = muc HIGH. Xem volume_button.c (chung ISR + debounce voi 2 nut am luong).
+#define PIN_BTN_SCREEN     35

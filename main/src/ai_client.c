@@ -13,7 +13,12 @@
 
 static const char *TAG = "AI_CLIENT";
 
-#define GEMINI_API_KEY   "AQ.Ab8RN6IMhnp_aglwa28YlsA7HtTQVQRoenm2kVowXHFahHrw6g"
+#if __has_include("secrets.h")
+#include "secrets.h"
+#else
+#error "Thieu main/inc/secrets.h - hay sao chep secrets.example.h thanh secrets.h roi dan API key vao"
+#endif
+
 #define GEMINI_MODEL     "gemini-3.5-flash"
 #define GEMINI_URL       "https://generativelanguage.googleapis.com/v1beta/models/" \
                           GEMINI_MODEL ":generateContent?key=" GEMINI_API_KEY
@@ -109,9 +114,16 @@ esp_err_t ai_client_recommend_song(const uint8_t *pcm_data, size_t pcm_len,
         "{\"inlineData\":{\"mimeType\":\"audio/wav\",\"data\":\"", prompt_text);
     if (prefix_len < 0 || prefix_len >= PREFIX_SZ) goto cleanup;
 
-    const char *json_suffix = "\"}}]}]}";
+    const char *json_suffix = "\"}}]}],\"generationConfig\":{\"thinkingConfig\":{\"thinkingLevel\":\"minimal\"}}}";
     size_t suffix_len = strlen(json_suffix);
     size_t content_length = prefix_len + b64_len + suffix_len;
+
+    // DEBUG: mbedTLS can ~30-40KB RAM (bo dem vao 16KB lien tuc + bo dem ra + ngu canh).
+    // Neu "largest" qua nho thi mbedtls_ssl_setup tra -0x008D (= PSA_ERROR_INSUFFICIENT_MEMORY).
+    ESP_LOGI(TAG, "Heap truoc khi mo TLS: internal free=%u largest=%u | psram free=%u",
+             (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
+             (unsigned)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
+             (unsigned)heap_caps_get_free_size(MALLOC_CAP_SPIRAM));
 
     esp_coex_preference_set(ESP_COEX_PREFER_WIFI);
     coex_changed = true;
@@ -120,7 +132,7 @@ esp_err_t ai_client_recommend_song(const uint8_t *pcm_data, size_t pcm_len,
         .url = GEMINI_URL,
         .method = HTTP_METHOD_POST,
         .cert_pem = GTS_ROOTS_PEM,   // tam thoi: bundle mac dinh thieu GlobalSign Root CA (xem gts_roots.h)
-        .timeout_ms = 20000,
+        .timeout_ms = 30000,
     };
     client = esp_http_client_init(&http_cfg);
     if (!client) goto cleanup;
@@ -128,7 +140,9 @@ esp_err_t ai_client_recommend_song(const uint8_t *pcm_data, size_t pcm_len,
 
     esp_err_t err = esp_http_client_open(client, content_length);
     if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Mo HTTP that bai: %s", esp_err_to_name(err));
+        ESP_LOGE(TAG, "Mo HTTP that bai: %s (internal free=%u largest=%u)", esp_err_to_name(err),
+                 (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT),
+                 (unsigned)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT));
         ret = err;
         goto cleanup;
     }

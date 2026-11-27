@@ -1,5 +1,6 @@
 #include "volume_button.h"
 #include "uart_link.h"
+#include "backlight_ctrl.h"
 #include "driver/gpio.h"
 #include "esp_log.h"
 #include "esp_timer.h"
@@ -15,7 +16,14 @@ static const char *TAG = "VOL_BTN";
 // ngat canh len, giong het logic debounce ben C3 truoc day.
 #define PIN_BTN_VOL_UP     18
 #define PIN_BTN_VOL_DOWN   19
+// MOI: nut tat/bat man hinh. GPIO35 chi la chan vao, khong co pull noi -> dien tro keo
+// xuong NGOAI, nhan = HIGH (giong 2 nut tren). Dung chung ISR/queue/task voi 2 nut tren.
+#define PIN_BTN_SCREEN     35
 #define DEBOUNCE_MS        300
+// Nut man hinh: sau khi nhan duoc ngat, doi chung nay ms roi doc lai muc chan - phai con HIGH
+// moi tinh la 1 lan nhan. Loc xung nhieu luc NHA nut (nhat la khi giu nut lau hon DEBOUNCE_MS,
+// cua so debounce da het nen xung nhieu luc nha se bi nham thanh lan nhan thu 2).
+#define SCREEN_BTN_SETTLE_MS  20
 
 static QueueHandle_t s_btn_queue = NULL;
 
@@ -27,12 +35,42 @@ static void IRAM_ATTR btn_isr_handler(void *arg)
     if (higher_prio_woken) portYIELD_FROM_ISR();
 }
 
+// MOI: nhan nut man hinh -> dao trang thai tat/bat.
+//   TAT: tat den nen NGAY (de khong thay man hinh nhay sang lockscreen), roi bao C3
+//        (SCREEN:0) de no khoa cam ung va nap lockscreen.
+//   BAT: bao C3 truoc (SCREEN:1 - mo lai cam ung), roi moi bat den nen.
+static void handle_screen_button(int64_t *last_ms)
+{
+    int64_t now_ms = esp_timer_get_time() / 1000;
+    if (now_ms - *last_ms < DEBOUNCE_MS) return;
+
+    vTaskDelay(pdMS_TO_TICKS(SCREEN_BTN_SETTLE_MS));
+    if (gpio_get_level(PIN_BTN_SCREEN) != 1) return;   // xung nhieu, khong phai nhan that
+    *last_ms = esp_timer_get_time() / 1000;
+
+    if (!backlight_ctrl_is_screen_off()) {
+        backlight_ctrl_set_screen_off(true);
+        uart_link_send_screen_state(false);
+        ESP_LOGI(TAG, "SCREEN -> TAT (da gui SCREEN:0 sang ESP32-C3)");
+    } else {
+        uart_link_send_screen_state(true);
+        backlight_ctrl_set_screen_off(false);
+        ESP_LOGI(TAG, "SCREEN -> BAT (da gui SCREEN:1 sang ESP32-C3)");
+    }
+}
+
 static void button_task(void *arg)
 {
     gpio_num_t pin;
-    int64_t last_up_ms = 0, last_down_ms = 0;
+    int64_t last_up_ms = 0, last_down_ms = 0, last_screen_ms = 0;
     while (1) {
         if (xQueueReceive(s_btn_queue, &pin, portMAX_DELAY) != pdTRUE) continue;
+
+        if (pin == PIN_BTN_SCREEN) {
+            handle_screen_button(&last_screen_ms);
+            continue;
+        }
+
         int64_t now_ms = esp_timer_get_time() / 1000;
         int64_t *last_ms = (pin == PIN_BTN_VOL_UP) ? &last_up_ms : &last_down_ms;
         if (now_ms - *last_ms < DEBOUNCE_MS) continue;
@@ -71,6 +109,7 @@ esp_err_t volume_button_init(void)
     if (ret != ESP_OK && ret != ESP_ERR_INVALID_STATE) return ret;
     configure_button_gpio(PIN_BTN_VOL_UP);
     configure_button_gpio(PIN_BTN_VOL_DOWN);
+    configure_button_gpio(PIN_BTN_SCREEN);   // MOI: nut tat/bat man hinh (GPIO35)
     xTaskCreate(button_task, "vol_btn", 3072, NULL, 5, NULL);
     return ESP_OK;
 }
